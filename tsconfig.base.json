@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@angular-monorepo/shared-ui": ["libraries/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
