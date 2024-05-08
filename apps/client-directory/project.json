@@ -20,7 +20,8 @@
           "apps/client-directory/src/favicon.ico",
           "apps/client-directory/src/assets"
         ],
-        "styles": ["apps/client-directory/src/styles.scss"],
+        "styles": ["apps/client-directory/src/styles.scss"
+      ],
         "scripts": []
       },
       "configurations": {

@@ -1,0 +1,38 @@
+
+/// Block Element
+/// @access public
+/// @param {String} $element - Element's name
+@mixin element($element) {
+    #{if(&, '&__' + $element , '.no-parent')} {
+        @content;
+    }
+}
+
+/// Block Modifier
+/// @access public
+/// @param {String} $modifier - Modifier's name
+@mixin modifier($modifier) {
+    #{if(&, '&--' + $modifier , '.no-parent')} {
+        @content;
+    }
+}
+
+/// Block Part
+/// @access public
+/// @param {$String} $part -- Block part name . example .sb-tree__list-'item'
+@mixin part($part) {
+    #{if(&, '&-' + $part , '.no-parent')} {
+        @content;
+    }
+}
+@mixin hover-supported {
+    /* 
+     * https://developer.mozilla.org/en-US/docs/Web/CSS/@media/pointer 
+     * coarse: The primary input mechanism includes a pointing device of limited accuracy.
+     */
+    @media not all and (pointer: coarse) {
+        &:hover {
+            @content;
+        }
+    }
+}
