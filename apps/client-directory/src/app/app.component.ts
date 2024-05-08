@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NxWelcomeComponent } from './nx-welcome.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './containers/header/header.component';
 
 @Component({
   standalone: true,

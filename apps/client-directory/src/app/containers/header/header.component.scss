@@ -1,0 +1,44 @@
+@import '../../../tools/tools.scss';
+.header{
+    background-color: var(--primary-bg);
+    color: #fff;
+    font-weight: bold;
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    @include element('logo'){
+        font-size: 16px;
+        svg {
+            color: var(--primary-color);
+            width: 15.666667%;
+            @include hover-supported{
+                color: var(--hover-color);
+                cursor: pointer;
+            }
+        }
+
+    }
+    @include element('nav'){
+        width: 100%;
+    }
+    @include element('ul'){
+        display: flex;
+        gap: 40px;
+        justify-content: flex-end;
+        width: 100%;
+        @include part('link'){
+            color: var(--primary-color);
+            cursor: pointer;
+            @include modifier('active'){
+                color: var(--active-color);
+                
+            };
+
+            @include hover-supported{
+                color: var(--hover-color);
+            }
+           
+        }
+    }
+   
+}

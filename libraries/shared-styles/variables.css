@@ -1,0 +1,21 @@
+:root {
+   
+    --primary-bg: hsla(214, 62%, 21%, 1);
+    --primary-color: #fff;
+    --active-color: hsla(214, 62%, 41%, 1);
+    --hover-color: hsla(214, 62%, 61%, 1);
+    --secondary-color: hsla(214, 62%, 31%, 1);
+    --tertiary-color: hsla(214, 62%, 41%, 1);
+    --quaternary-color: hsla(214, 62%, 51%, 1);
+    --quinary-color: hsla(214, 62%, 61%, 1);
+    --senary-color: hsla(214, 62%, 71%, 1);
+    --septenary-color: hsla(214, 62%, 81%, 1);
+    --octonary-color: hsla(214, 62%, 91%, 1);
+    --white-color: #fff;
+    --black-color: #000;
+    --gray-color: #ccc;
+    --light-gray-color: #f4f4f4;
+    --dark-gray-color: #333;
+    --light-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    --dark-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
