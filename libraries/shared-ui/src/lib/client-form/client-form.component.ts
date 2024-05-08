@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 import { CommonModule } from '@angular/common';
 import { StatusBarComponent } from '../status-bar/status-bar.component';
 import { ClientFormSections, UserModel } from '../models';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-
+import {  FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 @Component({
   selector: 'lib-client-form',
   standalone: true,
@@ -16,20 +16,26 @@ export class UIClientFormComponent {
   SECTIONS = ClientFormSections
   @Input() selectedSection = ClientFormSections.PERSONAL
   @Output() sectionChange = new EventEmitter<ClientFormSections>()
+  constructor(private formBuilder: FormBuilder) {}
+  userForm: FormGroup = this.formBuilder.group({
+    firstName: ['', Validators.required, ],
+    lastName: [''],
 
-  userForm: FormGroup = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    legalAddress: new FormControl(''),
-    legalCountry: new FormControl(''),
-    legalCity: new FormControl(''),
-    factualCity: new FormControl(''),
-    factualCountry: new FormControl(''),
-    factualAddress:  new FormControl(''),
-    photo: new FormControl(''),
-    gender: new FormControl('female'),
-    personalId: new FormControl(null),
-    phoneNumber: new FormControl(null),
+    
+    legalAddress: this.formBuilder.group({
+      country: [''],
+      city: [''],
+      address: [''],
+    }),
+    factualAddress: this.formBuilder.group({
+      country: [''],
+      city: [''],
+      address: [''],
+    }),
+    photo: [''],
+    gender: [''],
+    personalId: [''],
+    phoneNumber: [''],
     
   });
 
@@ -42,5 +48,9 @@ export class UIClientFormComponent {
   onPrevClick($event: MouseEvent){
     $event.preventDefault()
     this.sectionChange.emit(this.selectedSection - 1)
+  }
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.log(this.userForm.value)
   }
 }

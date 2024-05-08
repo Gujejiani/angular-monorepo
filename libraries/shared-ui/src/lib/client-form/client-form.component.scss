@@ -38,6 +38,9 @@
       @include modifier('secondary'){
         background-color: var(--secondary-color);
       }
+      @include modifier('disabled'){
+        opacity: 0.3 ;
+      }
     }
   }
   
