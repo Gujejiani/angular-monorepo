@@ -6,12 +6,22 @@
        
   
                 <div class="form-group">
-                    <label for="name">name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter name" formControlName="firstName">
+                    <label for="name">First Name</label>
+                    <input type="text" class="form-control" 
+                     [ngClass]="{'form-control--invalid': userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched}"
+                      id="name" placeholder="Enter name" formControlName="firstName">
+                    <span  *ngIf="userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched " class="error-message" >
+                        {{ userForm.get('firstName')?.getError('errorMessage') ?? 'FirstName most contain min 2 and max 50 letters' }} 
+                    </span>
                 </div>
                 <div class="form-group">
-                    <label class="form-label" for="email">Last Name</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter email" formControlName="lastName">
+                    <label class="form-label" for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name"
+                    [ngClass]="{'form-control--invalid': userForm.get('lastName')?.invalid && userForm.get('firstName')?.touched}"
+                    formControlName="lastName">
+                    <span  *ngIf="userForm.get('lastName')?.invalid && userForm.get('lastName')?.touched " class="error-message" >
+                        {{ userForm.get('lastName')?.getError('errorMessage') ?? 'lastName most contain min 2 and max 50 letters' }} 
+                    </span>
                 </div>
                 <div class="form-group">
                     <label for="gender">Gender</label>
@@ -22,7 +32,11 @@
                 </div>
                 <div class="form-group">
                     <label for="number">Id Number</label>
-                    <input type="text" class="form-control" id="number" formControlName="personalId" placeholder="ID number">
+                    <input            [ngClass]="{'form-control--invalid': userForm.get('personalId')?.invalid && userForm.get('personalId')?.touched}"
+                     type="text" class="form-control" id="number" formControlName="personalId" placeholder="ID number">
+                    <span  *ngIf="userForm.get('personalId')?.invalid && userForm.get('personalId')?.touched " class="error-message" >
+                        {{  'Personal ID must container 11 numbers' }} 
+                    </span>
                 </div>
                
             </ng-container>
@@ -32,6 +46,10 @@
                 <div  class="form-group">
                     <label for="phone">Phone Number</label>
                     <input type="text" class="form-control" id="phone" placeholder="Phone Number" formControlName="phoneNumber" >
+              
+                    <span  *ngIf="userForm.get('phoneNumber')?.invalid && userForm.get('phoneNumber')?.touched " class="error-message" >
+                        {{ userForm.get('phoneNumber')?.getError('errorMessage') ?? 'Phone number must include 9 number' }} 
+                    </span>
                 </div>
                 <div formGroupName="legalAddress" class="form-group">
                     <label for="legalCountry">Country</label>

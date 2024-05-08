@@ -10,6 +10,7 @@
   box-shadow: var(--light-shadow);
     @include part('group'){
         margin-bottom: 20px;
+        position: relative;
     }
     @include element('status'){
       position: absolute;
@@ -59,6 +60,10 @@
     border-radius: 5px;
     background-color: var(--white-color);
     color: var(--dark-gray-color);
+    outline-color: white;
+    @include modifier('invalid'){
+      border-color: var(--error-color);
+    }
   }
   
  
@@ -74,6 +79,12 @@
   
   .error-message {
     color: var(--error-color);
+    font-size: 14px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: -20px;
+    opacity: 0.8;
   }
 
 
