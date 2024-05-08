@@ -1,0 +1,20 @@
+@import '../../../../../../tools/tools.scss';
+
+.form{
+    background-color: var(--primary-bg);
+    border-radius: 10px;
+  
+    color: var(--primary-color);
+    padding: 20px;
+    max-width: 736px;
+    margin: auto;
+    margin-top: 100px;
+    @include element('info'){
+        text-align: center;
+        @include part('title'){
+            font-size: 24px;
+           
+        }
+    }
+    
+}
