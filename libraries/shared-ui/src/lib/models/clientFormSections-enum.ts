@@ -1,6 +1,6 @@
 export enum ClientFormSections {
     PERSONAL,
     LEGAL_ADDRESS,
-    PHYSICAL_ADDRESS
+    FACTUAL_ADDRESS
     
 }

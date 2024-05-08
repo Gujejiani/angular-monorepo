@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ClientFormComponent } from './client-form.component';
+import { ClientFormComponent } from './client-form-container.component';
 
 describe('ClientFormComponent', () => {
   let component: ClientFormComponent;

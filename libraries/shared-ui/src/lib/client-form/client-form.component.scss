@@ -6,13 +6,38 @@
   background-color: var(--primary-bg);
   color: var(--primary-color);
   border-radius: 10px;
+ 
   box-shadow: var(--light-shadow);
     @include part('group'){
         margin-bottom: 20px;
     }
+    @include element('status'){
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
     @include element('status-bar'){
-      margin-top: 20px;
+      margin-top: 50px;
       position: relative;
+    }
+    @include element('buttons'){
+      display: flex;
+      gap: 16px;
+    }
+    @include part('btn'){
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: var(--active-color);
+      color: var(--white-color);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      @include modifier('secondary'){
+        background-color: var(--secondary-color);
+      }
     }
   }
   
@@ -33,21 +58,13 @@
     color: var(--dark-gray-color);
   }
   
-  .btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--active-color);
-    color: var(--white-color);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+ 
   
   .btn:hover {
     background-color: var(--hover-color);
   }
   
-  /* Additional styles for success and error messages */
+
   .success-message {
     color: var(--success-color);
   }
@@ -59,49 +76,34 @@
 
   
 
-
-
-
-
-
-
-
-
-
-.section {
-    margin-bottom: 30px; /* Added margin between sections for spacing */
-}
-
-.section h2 {
-    margin-bottom: 10px; /* Added margin below section headings for spacing */
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
+  .form-control-file {
     display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.form-control {
     width: 100%;
-    padding: 8px;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: var(--primary-color);
+    background-clip: padding-box;
     border: 1px solid var(--gray-color);
-    border-radius: 5px;
-    background-color: var(--white-color);
-    color: var(--dark-gray-color);
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-.btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--active-color);
-    color: var(--white-color);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

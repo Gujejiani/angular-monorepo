@@ -1,47 +1,96 @@
-<form class="form" >
-    <div class="form-group">
-        <label for="name">name</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter name">
-    </div>
-    <div class="form-group">
-        <label class="form-label" for="email">Last Name</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email">
-    </div>
-    <div class="form-group">
-        <label for="gender">Gender</label>
-        <select id="gender" class="form-control">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="number">Id Number</label>
-        <input type="text" class="form-control" id="number" placeholder="ID number">
-    </div>
-    <div class="form-group">
-        <label for="phone">Id Number</label>
-        <input type="text" class="form-control" id="phone" placeholder="Phone Number">
-    </div>
- 
-    <div class="form-group">
-        <label for="country">Country</label>
-        <input type="text" class="form-control" id="couyntry" placeholder="Phone Number">
-    </div>
-    <div class="form-group">
-        <label for="country">City</label>
-        <input type="text" class="form-control" id="couyntry" placeholder="Phone Number">
-    </div>
-    <div class="section">
-        <h2>Factual Address</h2>
-        <div class="form-group">
-            <label for="factualAddress">Factual Address</label>
-            <input type="text" class="form-control" id="factualAddress" placeholder="Enter factual address">
-        </div>
-    </div>
+<form class="form" [formGroup]="userForm" >
+    @switch (selectedSection) {
+        @case(SECTIONS.PERSONAL){
+            <ng-container  >
     
-    <button type="submit" class="btn btn-primary">Submit</button>
-<div class="form__status-bar" >
-    <lib-status-bar></lib-status-bar>
+       
+  
+                <div class="form-group">
+                    <label for="name">name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter name" formControlName="firstName">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="email">Last Name</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" formControlName="lastName">
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" class="form-control" formControlName="gender" >
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="number">Id Number</label>
+                    <input type="text" class="form-control" id="number" formControlName="personalId" placeholder="ID number">
+                </div>
+               
+            </ng-container>
+        }
+        @case (SECTIONS.LEGAL_ADDRESS) {
+            <ng-container >
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" class="form-control" id="phone" placeholder="Phone Number" formControlName="phoneNumber" >
+                </div>
+                <div class="form-group">
+                    <label for="legalCountry">Country</label>
+                    <input type="text" class="form-control" id="legalCountry" placeholder="Enter legal address" formControlName="legalCity" >
+                </div>
+                <div class="form-group">
+                    <label for="legalCity">City</label>
+                    <input type="text" class="form-control" id="legalCity" placeholder="Enter legal address" formControlName="legalCountry" >
+                </div>
+                <div class="form-group">
+                    <label for="legalAddress">Address</label>
+                    <input type="text" class="form-control" id="legalAddress" placeholder="Enter legal address" formControlName="legalAddress" >
+                </div>
+            </ng-container>
+        }
+        @case (SECTIONS.FACTUAL_ADDRESS) {
+                <div class="form-group">
+                    <label for="FactualCountry">Country</label>
+                    <input type="text" class="form-control" id="FactualCountry" placeholder="Enter factual Country" formControlName="factualCountry" >
+                </div>
+                <div class="form-group">
+                    <label for="FactualCity">City</label>
+                    <input type="text" class="form-control" id="FactualCity" placeholder="Enter factual City" formControlName="factualCity" >
+                </div>
+                <div class="form-group">
+                    <label for="factualAddress">Address</label>
+                    <input type="text" class="form-control" id="factualAddress" placeholder="Enter factual address" formControlName="factualAddress" >
+                </div>
+                <div class="form-group">
+                    <label for="photo">Upload Photo</label>
+                    <input type="file" class="form-control-file" id="photo">
+                </div>
+           
+        }
+        @default {
+            <h1>Please Provide Valid Form Type</h1>
+        }
+           
+    }
+ 
+
+   <div class="form__buttons" >
+   
+
+    <button (click)="onNextClick($event)" class="form-btn form-btn--secondary ">Next</button>
+    @if(selectedSection !== SECTIONS.PERSONAL){
+        <button (click)="onPrevClick($event)" class="form-btn form-btn--secondary ">Prev</button>
+
+    }
+
+    <button  class="form-btn ">Submit</button>
+   </div>
+    
+<div class="form__status" >
+    <div class="form__status-bar" >
+   
+        <lib-status-bar [secondPage]="selectedSection===SECTIONS.LEGAL_ADDRESS" [lastPage]="selectedSection===SECTIONS.FACTUAL_ADDRESS"  ></lib-status-bar>
+    </div>
 </div>
+
     
 </form>

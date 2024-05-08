@@ -16,6 +16,13 @@
                 cursor: pointer;
             }
         }
+        @include modifier('active'){
+            svg {
+                color: var(--senary-color);
+            }
+         
+            
+        };
 
     }
     @include element('nav'){
@@ -30,7 +37,7 @@
             color: var(--primary-color);
             cursor: pointer;
             @include modifier('active'){
-                color: var(--active-color);
+                color: var(--senary-color);
                 
             };
 
