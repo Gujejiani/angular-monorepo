@@ -1,5 +1,5 @@
 import { UserService } from './../../services/user.service';
-import { UIClientFormComponent, maxImumNumberOfUserFormPages } from '@angular-monorepo/shared-ui';
+import { UIClientFormContainerComponent, maxImumNumberOfUserFormPages } from '@angular-monorepo/shared-ui';
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
@@ -9,12 +9,12 @@ import {  FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-client-form',
   standalone: true,
-  imports: [CommonModule, RouterModule, UIClientFormComponent],
+  imports: [CommonModule, RouterModule, UIClientFormContainerComponent],
   templateUrl: './client-form-container.component.html',
   styleUrl: './client-form-container.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ClientFormComponent  implements OnInit {
+export class ClientFormContainerComponent  implements OnInit {
  selectedSection = ClientFormSectionNames.PERSONAL;
   SECTIONS = ClientFormSectionNames;
 

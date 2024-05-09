@@ -16,7 +16,7 @@ import { FormBuilder } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class UIClientFormComponent {
+export class UIClientFormContainerComponent {
   SECTIONS = ClientFormSectionNames
   @Input() selectedSection = ClientFormSectionNames.PERSONAL
   @Output() sectionChange = new EventEmitter<ClientFormSectionNames>()
