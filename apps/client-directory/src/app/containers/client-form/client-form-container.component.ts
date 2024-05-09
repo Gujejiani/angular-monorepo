@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { ClientFormSectionNames } from 'libraries/shared-ui/src/lib/models';
 import {  FormGroup } from '@angular/forms';
-import { SHOW_LOADING_ACTION } from '../../store/users/users.actions';
 
 @Component({
   selector: 'app-client-form',
@@ -33,7 +32,6 @@ export class ClientFormContainerComponent  implements OnInit {
    * @param formPageIndex 
    */
   formPageIndexChanged(formPageIndex: number) {
-      this.store.dispatch(SHOW_LOADING_ACTION(true))
       console.log('dispatched', formPageIndex)
       if(formPageIndex<maxImumNumberOfUserFormPages){
         localStorage.setItem('insideFormNav', 'true');

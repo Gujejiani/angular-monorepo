@@ -24,7 +24,6 @@ export const usersReducer = createReducer(
     on(Actions.CREATE_USER_ACTION, (state, { payload }) => {
         return {
         ...state,
-        payload,
         };
     }),
     on(Actions.SHOW_LOADING_ACTION, (state, { payload }) => {

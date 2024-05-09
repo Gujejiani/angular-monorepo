@@ -1,5 +1,5 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
-export const georgianPattern = /^[\u10A0-\u10FF\s\d]*$/; // Georgian letters and numbers pattern
+export const georgianPattern = /^[\u10A0-\u10FF\s\d]*$/; 
 export const englishPattern = /^[a-zA-Z\s\d]*$/; 
 // Custom validator function to check if the input contains only Latin letters
 export function patternValidator(georgianPattern: RegExp, englishPattern: RegExp): ValidatorFn {
@@ -17,6 +17,11 @@ export function patternValidator(georgianPattern: RegExp, englishPattern: RegExp
     };
   }
 
+  /**
+   * 
+   * @param prefix => string on which the value should start with
+   * @returns 
+   */
   export function startsWithValidator(prefix: string): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const value = control.value;
@@ -29,6 +34,10 @@ export function patternValidator(georgianPattern: RegExp, englishPattern: RegExp
     };
   }
   
+  /**
+   * 
+   * checks if the value is male or female
+   */
 export function genderValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     const value = control.value;

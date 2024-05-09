@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve client-directory"
+    "start": "nx serve client-directory",
+    "start:server": "json-server --watch mock/db.json --port 3000"
+
   },
   "private": true,
   "dependencies": {
@@ -57,6 +59,7 @@
     "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
     "jest-preset-angular": "~14.0.3",
+    "json-server": "^1.0.0-alpha.23",
     "jsonc-eslint-parser": "^2.1.0",
     "ng-packagr": "~17.3.0",
     "nx": "19.0.0",

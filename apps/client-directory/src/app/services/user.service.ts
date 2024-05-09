@@ -1,12 +1,19 @@
-import { englishPattern, genderValidator, georgianPattern, patternValidator, startsWithValidator } from "@angular-monorepo/shared-ui";
+import { Store } from '@ngrx/store';
+import { UserModel, englishPattern, genderValidator, georgianPattern, patternValidator, startsWithValidator } from "@angular-monorepo/shared-ui";
 import { Injectable } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
+import * as Actions from '../store/users/users.actions';
 
 @Injectable({providedIn: 'root'})
 export class UserService {
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder, private store: Store) {}
 
 
+
+    createUser(user: UserModel){
+        this.store.dispatch(Actions.CREATE_USER_ACTION(user))
+    }
+    
     
     getUserForm (){
         return this.formBuilder.group({

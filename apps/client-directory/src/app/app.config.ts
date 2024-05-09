@@ -6,23 +6,24 @@ import {
 } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideStore, StoreModule } from '@ngrx/store';
+import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { UsersReducerFn } from './store/state';
-import { CoreModule } from '@angular-monorepo/core';
+import { UsersEffects } from './store/users/users.effects';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideEffects(),
+    provideEffects([UsersEffects]),
     provideStore({
       user: UsersReducerFn
     }),
+    provideHttpClient(),
    
     provideStoreDevtools({
       logOnly: !isDevMode(),
     }),
-    CoreModule,
     provideRouter(
       appRoutes,
       withEnabledBlockingInitialNavigation(),
