@@ -1,3 +1,4 @@
+import { Store } from '@ngrx/store';
 import { UserService } from './../../services/user.service';
 import { UIClientFormContainerComponent, maxImumNumberOfUserFormPages } from '@angular-monorepo/shared-ui';
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
@@ -5,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { ClientFormSectionNames } from 'libraries/shared-ui/src/lib/models';
 import {  FormGroup } from '@angular/forms';
+import { SHOW_LOADING_ACTION } from '../../store/user/user.actions';
 
 @Component({
   selector: 'app-client-form',
@@ -21,7 +23,7 @@ export class ClientFormContainerComponent  implements OnInit {
   ngOnInit(): void {
     this.loadFormFromLocalStorage();
   }
-  constructor( private userService: UserService, private router: Router) {}
+  constructor( private userService: UserService, private router: Router, private store: Store) {}
   userForm: FormGroup = this.userService.getUserForm();
   @Input({
     transform: (value: string) => Number(value),
@@ -31,6 +33,8 @@ export class ClientFormContainerComponent  implements OnInit {
    * @param formPageIndex 
    */
   formPageIndexChanged(formPageIndex: number) {
+      this.store.dispatch(SHOW_LOADING_ACTION(true))
+      console.log('dispatched', formPageIndex)
       if(formPageIndex<maxImumNumberOfUserFormPages){
         localStorage.setItem('insideFormNav', 'true');
           this.router.navigate(['/add-client', formPageIndex], {

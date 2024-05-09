@@ -4,7 +4,6 @@ import { StatusBarComponent } from '../status-bar/status-bar.component';
 import { ClientFormSectionNames } from '../models';
 import {  FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { animate, style, transition, trigger } from '@angular/animations';
 import { slideFadeAnimation } from '../animation/animations';
 
 
