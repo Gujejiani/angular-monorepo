@@ -1,7 +1,7 @@
 <form class="form" [formGroup]="userForm" (ngSubmit)="onSubmit()" >
     @switch (selectedSection) {
         @case(SECTIONS.PERSONAL){
-            <ng-container  >
+            <div  [@slideFadeAnimation]="{value: false, params: {transition:   isRightButtonClick? '100%': '-100%'} }" >
     
        
   
@@ -39,10 +39,10 @@
                     </span>
                 </div>
                
-            </ng-container>
+            </div>
         }
         @case (SECTIONS.LEGAL_ADDRESS) {
-            <ng-container  >
+            <div  [@slideFadeAnimation]="{value: false, params:{transition:   isRightButtonClick? '100%': '-100%'} }"  >
                
                 <div formGroupName="legalAddress" class="form-group">
                     <label for="legalCountry">Country</label>
@@ -82,9 +82,10 @@
                         {{ userForm.get('phoneNumber')?.getError('errorMessage') ?? 'Phone number must include 9 number' }} 
                     </span>
                 </div>
-            </ng-container>
+            </div>
         }
         @case (SECTIONS.FACTUAL_ADDRESS) {
+            <div  [@slideFadeAnimation]="{value: false, params: {transition:   isRightButtonClick? '100%': '-100%'} }"   >
             <ng-container formGroupName="factualAddress" >
                 <div class="form-group">
                     <label for="FactualCountry">Country</label>
@@ -118,6 +119,7 @@
                     <label for="photo">Upload Photo</label>
                     <input type="file" class="form-control-file" id="photo" formControlName="photo" >
                 </div>
+            </div>
            
         }
         @default {
