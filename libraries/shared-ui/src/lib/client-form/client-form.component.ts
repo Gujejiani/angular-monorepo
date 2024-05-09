@@ -1,9 +1,8 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StatusBarComponent } from '../status-bar/status-bar.component';
-import { ClientFormSectionNames } from '../models';
+import { ClientFormSectionNames, UserModel } from '../models';
 import {  FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
 import { slideFadeAnimation } from '../animation/animations';
 
 
@@ -21,12 +20,19 @@ import { slideFadeAnimation } from '../animation/animations';
 })
 
 export class UIClientFormContainerComponent {
+  constructor( private cdr: ChangeDetectorRef) {}
   SECTIONS = ClientFormSectionNames
-  @Input() selectedSection = ClientFormSectionNames.PERSONAL
+  @Input({
+    required: true
+  }) selectedSection = ClientFormSectionNames.PERSONAL
+  @Input({
+    required: true
+  }) userForm: FormGroup = new FormGroup({})
+
   @Output() sectionChange = new EventEmitter<ClientFormSectionNames>()
-  constructor(private formBuilder: FormBuilder, private cdr: ChangeDetectorRef) {}
- @Input() userForm: FormGroup = new FormGroup({})
- isRightButtonClick=true
+  @Output() fromSubmitted = new EventEmitter<UserModel>()
+
+  isRightButtonClick=true
   onNextClick($event: MouseEvent){
     console.log(this.userForm.controls)
     $event.preventDefault()
@@ -42,8 +48,11 @@ export class UIClientFormContainerComponent {
     this.cdr.markForCheck()
   }
   onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.log(this.userForm)
+    // anyway second check
+    if(this.userForm.valid){
+      this.fromSubmitted.emit(this.userForm.value)
+    }
+
   }
 
   getAnimationTrigger(): string {

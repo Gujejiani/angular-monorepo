@@ -3,12 +3,20 @@ import { UserModel, englishPattern, genderValidator, georgianPattern, patternVal
 import { Injectable } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import * as Actions from '../store/users/users.actions';
-
+import * as Selectors from '../store/users/users.selectors';
 @Injectable({providedIn: 'root'})
 export class UserService {
     constructor(private formBuilder: FormBuilder, private store: Store) {}
 
+  fetchUsers(){
+    this.store.dispatch(Actions.GET_USERS())
+  
+  }
 
+  getUsers(){
+   return this.store.select(Selectors.selectUsers)
+  }
+  
 
     createUser(user: UserModel){
         this.store.dispatch(Actions.CREATE_USER_ACTION(user))

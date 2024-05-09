@@ -8,14 +8,16 @@ import { createReducer, on, Action } from '@ngrx/store';
 
 import * as Actions from './users.actions'
 
-export interface UserState {
-    users: UserModel[]
-    loading: boolean
+export interface UsersState {
+    users: UserModel[],
+    loading: boolean,
+    createUserSuccess: boolean
 }
 
-export const initialState:  UserState = {
+export const initialState:  UsersState = {
     users:[],
-    loading: false
+    loading: false,
+    createUserSuccess: false
 }
 
 export const usersReducer = createReducer(
@@ -31,6 +33,18 @@ export const usersReducer = createReducer(
         return {
             ...state,
             loading: payload
+        }
+    }),
+    on(Actions.CREATE_USER_SUCCESS, (state) => {
+        return {
+            ...state,
+            createUserSuccess: true
+        }
+    }),
+    on(Actions.GET_USERS_SUCCESS, (state, {payload}) => {
+        return {
+            ...state,
+            users: payload
         }
     }),
 );

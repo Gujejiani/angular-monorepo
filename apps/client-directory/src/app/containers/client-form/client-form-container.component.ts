@@ -4,7 +4,7 @@ import { UIClientFormContainerComponent, maxImumNumberOfUserFormPages } from '@a
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { ClientFormSectionNames } from 'libraries/shared-ui/src/lib/models';
+import { ClientFormSectionNames, UserModel } from 'libraries/shared-ui/src/lib/models';
 import {  FormGroup } from '@angular/forms';
 
 @Component({
@@ -40,6 +40,10 @@ export class ClientFormContainerComponent  implements OnInit {
           })   
       }
       this.saveFormToLocalStorage()
+  }
+  fromSubmitted(newUser: UserModel){
+
+    this.userService.createUser(newUser)
   }
   /**
    * Save form values to local storage

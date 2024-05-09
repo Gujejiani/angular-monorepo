@@ -1,6 +1,118 @@
 {
   "users": [
-   
-   
+    {
+      "id": "54a8",
+      "firstName": "asd",
+      "lastName": "wsda",
+      "legalAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "factualAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "photo": "",
+      "gender": "male",
+      "personalId": "23232323223",
+      "phoneNumber": "598829272"
+    },
+    {
+      "id": "324b",
+      "firstName": "asd",
+      "lastName": "wsda",
+      "legalAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "factualAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "photo": "",
+      "gender": "male",
+      "personalId": "23232323223",
+      "phoneNumber": "598829272"
+    },
+    {
+      "id": "b9ce",
+      "firstName": "asd",
+      "lastName": "wsda",
+      "legalAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "factualAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "photo": "",
+      "gender": "male",
+      "personalId": "23232323223",
+      "phoneNumber": "598829272"
+    },
+    {
+      "id": "eebb",
+      "firstName": "asd",
+      "lastName": "wsda",
+      "legalAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "factualAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "photo": "",
+      "gender": "male",
+      "personalId": "23232323223",
+      "phoneNumber": "598829272"
+    },
+    {
+      "id": "8ad5",
+      "firstName": "kakha",
+      "lastName": "wsda",
+      "legalAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "factualAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "photo": "",
+      "gender": "male",
+      "personalId": "23232323223",
+      "phoneNumber": "598829272"
+    },
+    {
+      "id": "81ed",
+      "firstName": "kakha",
+      "lastName": "wsda",
+      "legalAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "factualAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "photo": "",
+      "gender": "male",
+      "personalId": "23232323223",
+      "phoneNumber": "598829272"
+    }
   ]
 }
