@@ -17,7 +17,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideEffects([UsersEffects]),
     provideStore({
-      user: UsersReducerFn
+      users: UsersReducerFn
     }),
     provideHttpClient(),
    

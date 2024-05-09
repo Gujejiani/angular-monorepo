@@ -18,9 +18,13 @@ export class UserService {
   }
   
 
-    createUser(user: UserModel){
+  createUser(user: UserModel){
         this.store.dispatch(Actions.CREATE_USER_ACTION(user))
-    }
+  }
+
+  deleteUser(id: number){
+    this.store.dispatch(Actions.DELETE_USER(id))
+  }
     
     
     getUserForm (){

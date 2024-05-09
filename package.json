@@ -5,7 +5,6 @@
   "scripts": {
     "start": "nx serve client-directory",
     "start:server": "json-server --watch mock/db.json --port 3000"
-
   },
   "private": true,
   "dependencies": {
@@ -50,6 +49,7 @@
     "@swc/helpers": "~0.5.2",
     "@types/jest": "^29.4.0",
     "@types/node": "18.16.9",
+    "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "^7.3.0",
     "@typescript-eslint/parser": "^7.3.0",
     "autoprefixer": "^10.4.0",

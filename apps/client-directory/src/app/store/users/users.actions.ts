@@ -18,3 +18,8 @@ export const CREATE_USER_ACTION = createAction('create user action',
  export const GET_USERS_SUCCESS = createAction('get users success',
  (payload: UserModel[]) => ({ payload })
  );
+
+ export const DELETE_USER = createAction('delete  user', (payload: number) => ({ payload })
+ );
+ export const DELETE_USER_SUCCESS = createAction('user deleted success '
+ );

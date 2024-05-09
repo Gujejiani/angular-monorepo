@@ -1,0 +1,20 @@
+
+<!-- @for() -->
+<div class="clients" >
+    <div  class="clients__title" >
+        <h3>
+       
+          Client List 
+        </h3>
+      </div>
+      <div class="clients__container">
+        
+    
+            @for(user of users$ | async; track user.id){
+                <lib-user-card [user]="user" (deleteUser)="deleteUser($event)" >
+
+                </lib-user-card>
+            }
+        </div>
+   
+</div>

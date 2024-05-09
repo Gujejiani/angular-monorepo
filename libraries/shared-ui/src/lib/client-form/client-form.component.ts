@@ -34,9 +34,9 @@ export class UIClientFormContainerComponent {
 
   isRightButtonClick=true
   onNextClick($event: MouseEvent){
-    console.log(this.userForm.controls)
+    
     $event.preventDefault()
-    console.log(this.SECTIONS[this.selectedSection + 1])
+
     this.sectionChange.emit(this.selectedSection + 1)
     this.isRightButtonClick =true;
     this.cdr.markForCheck()
