@@ -32,7 +32,10 @@ export class ClientFormContainerComponent  implements OnInit {
    */
   formPageIndexChanged(formPageIndex: number) {
       if(formPageIndex<maxImumNumberOfUserFormPages){
-          this.router.navigate(['/add-client', formPageIndex])
+        localStorage.setItem('insideFormNav', 'true');
+          this.router.navigate(['/add-client', formPageIndex], {
+          
+          })   
       }
       this.saveFormToLocalStorage()
   }
