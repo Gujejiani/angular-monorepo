@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { ClientFormSectionNames } from 'libraries/shared-ui/src/lib/models';
 import {  FormGroup } from '@angular/forms';
-import { SHOW_LOADING_ACTION } from '../../store/user/user.actions';
+import { SHOW_LOADING_ACTION } from '../../store/users/users.actions';
 
 @Component({
   selector: 'app-client-form',

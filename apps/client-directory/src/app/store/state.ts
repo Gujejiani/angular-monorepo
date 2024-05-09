@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { UserState, usersReducer } from "./user/users.reducer";
+import { UserState, usersReducer } from "./users/users.reducer";
 
 
 

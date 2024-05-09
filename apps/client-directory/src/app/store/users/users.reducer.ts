@@ -6,7 +6,7 @@ import { UserModel } from '@angular-monorepo/shared-ui';
 
 import { createReducer, on, Action } from '@ngrx/store';
 
-import * as Actions from './user.actions'
+import * as Actions from './users.actions'
 
 export interface UserState {
     users: UserModel[]
