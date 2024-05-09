@@ -43,23 +43,14 @@
         }
         @case (SECTIONS.LEGAL_ADDRESS) {
             <ng-container  >
-                <div  class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input 
-                    [ngClass]="{'form-control--invalid': userForm.get('phoneNumber')?.invalid && userForm.get('phoneNumber')?.touched}"
-                    type="text" class="form-control" id="phone" placeholder="Phone Number" formControlName="phoneNumber" >
-              
-                    <span  *ngIf="userForm.get('phoneNumber')?.invalid && userForm.get('phoneNumber')?.touched " class="error-message" >
-                        {{ userForm.get('phoneNumber')?.getError('errorMessage') ?? 'Phone number must include 9 number' }} 
-                    </span>
-                </div>
+               
                 <div formGroupName="legalAddress" class="form-group">
-                    <label for="legalCountry">Country TEST</label>
+                    <label for="legalCountry">Country</label>
                     <input  
                     [ngClass]="{'form-control--invalid': userForm.get('legalAddress.country')?.invalid && userForm.get('legalAddress.country')?.touched}"
                     type="text" class="form-control" id="legalCountry" placeholder="Enter legal address" formControlName="country" >
                     <span  *ngIf="userForm.get('legalAddress.country')?.invalid && userForm.get('legalAddress.country')?.touched " class="error-message" >
-                        {{ 'Country most contain letters' }} 
+                        {{ 'Country is required' }} 
                     </span>
                
                 </div>
@@ -69,7 +60,7 @@
                     [ngClass]="{'form-control--invalid': userForm.get('legalAddress.city')?.invalid && userForm.get('legalAddress.city')?.touched}"
                     type="text" class="form-control" id="legalCity" placeholder="Enter legal address" formControlName="city" >
                     <span  *ngIf="userForm.get('legalAddress.city')?.invalid && userForm.get('legalAddress.city')?.touched " class="error-message" >
-                        {{ 'City most contain letters' }} 
+                        {{ 'City is required' }} 
                     </span>
                 </div>
                 <div formGroupName="legalAddress" class="form-group">
@@ -78,7 +69,17 @@
                     [ngClass]="{'form-control--invalid': userForm.get('legalAddress.address')?.invalid && userForm.get('legalAddress.address')?.touched}"
                     type="text" class="form-control" id="legalAddress" placeholder="Enter legal address" formControlName="address" >
                     <span  *ngIf="userForm.get('legalAddress.address')?.invalid && userForm.get('legalAddress.address')?.touched " class="error-message" >
-                        {{ 'Address most contain letters' }} 
+                        {{ 'Address is required' }} 
+                    </span>
+                </div>
+                <div  class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input 
+                    [ngClass]="{'form-control--invalid': userForm.get('phoneNumber')?.invalid && userForm.get('phoneNumber')?.touched}"
+                    type="text" class="form-control" id="phone" placeholder="Phone Number" formControlName="phoneNumber" >
+              
+                    <span  *ngIf="userForm.get('phoneNumber')?.invalid && userForm.get('phoneNumber')?.touched " class="error-message" >
+                        {{ userForm.get('phoneNumber')?.getError('errorMessage') ?? 'Phone number must include 9 number' }} 
                     </span>
                 </div>
             </ng-container>
@@ -100,7 +101,7 @@
                     [ngClass]="{'form-control--invalid': userForm.get('factualAddress.city')?.invalid && userForm.get('factualAddress.city')?.touched}"
                     type="text" class="form-control" id="FactualCity" placeholder="Enter factual City" formControlName="city" >
                     <span  *ngIf="userForm.get('factualAddress.city')?.invalid && userForm.get('factualAddress.city')?.touched " class="error-message" >
-                        {{ 'City most contain letters' }} 
+                        {{ 'City is required' }} 
                     </span>
                 </div>
                 <div class="form-group">
@@ -109,7 +110,7 @@
                     [ngClass]="{'form-control--invalid': userForm.get('factualAddress.address')?.invalid && userForm.get('factualAddress.address')?.touched}"
                     type="text" class="form-control" id="factualAddress" placeholder="Enter factual address" formControlName="address" >
                     <span  *ngIf="userForm.get('factualAddress.address')?.invalid && userForm.get('factualAddress.address')?.touched " class="error-message" >
-                        {{ 'Address most contain letters' }} 
+                        {{ 'Address is required' }} 
                     </span>
                 </div>
             </ng-container>
@@ -129,7 +130,7 @@
    <div class="form__buttons" >
    
 
-    <button (click)="onNextClick($event)" class="form-btn form-btn--secondary ">Next</button>
+    <button (click)="onNextClick($event)" [disabled]="nextIsDisabled" [ngClass]="{'form-btn--disabled': nextIsDisabled}"  class="form-btn form-btn--secondary ">Next</button>
     @if(selectedSection !== SECTIONS.PERSONAL){
         <button (click)="onPrevClick($event)" class="form-btn form-btn--secondary ">Prev</button>
 

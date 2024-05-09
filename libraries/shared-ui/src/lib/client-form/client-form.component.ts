@@ -1,13 +1,12 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StatusBarComponent } from '../status-bar/status-bar.component';
-import { ClientFormSections, UserModel } from '../models';
-import {  FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ClientFormSectionNames } from '../models';
+import {  FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { patternValidator, genderValidator, startsWithValidator} from '../utils/utils';
 
-const georgianPattern = /^[\u10A0-\u10FF\s\d]*$/; // Georgian letters and numbers pattern
-const englishPattern = /^[a-zA-Z\s\d]*$/; 
+
+
 @Component({
   selector: 'lib-client-form',
   standalone: true,
@@ -18,31 +17,11 @@ const englishPattern = /^[a-zA-Z\s\d]*$/;
 })
 
 export class UIClientFormComponent {
-  SECTIONS = ClientFormSections
-  @Input() selectedSection = ClientFormSections.PERSONAL
-  @Output() sectionChange = new EventEmitter<ClientFormSections>()
+  SECTIONS = ClientFormSectionNames
+  @Input() selectedSection = ClientFormSectionNames.PERSONAL
+  @Output() sectionChange = new EventEmitter<ClientFormSectionNames>()
   constructor(private formBuilder: FormBuilder) {}
-  userForm: FormGroup = this.formBuilder.group({
-    firstName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50, ), patternValidator(georgianPattern, englishPattern)] ],
-    lastName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50), patternValidator(georgianPattern, englishPattern)]],
-
-    
-    legalAddress: this.formBuilder.group({
-      country: ['', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
-      city: ['', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
-      address: ['', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
-    }),
-    factualAddress: this.formBuilder.group({
-      country: ['', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
-      city: ['', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
-      address: ['', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
-    }),
-    photo: [''],
-    gender: ['male', [Validators.required, genderValidator()]],
-    personalId: ['',[Validators.required, Validators.minLength(11), Validators.maxLength(11), Validators.pattern('^[0-9]*$')]],
-    phoneNumber: ['',[Validators.required,  Validators.minLength(9), Validators.maxLength(9), Validators.pattern('^[0-9]*$'), startsWithValidator('5')]],
-    
-  });
+ @Input() userForm: FormGroup = new FormGroup({})
 
   onNextClick($event: MouseEvent){
     console.log(this.userForm.controls)
@@ -56,6 +35,18 @@ export class UIClientFormComponent {
   }
   onSubmit() {
     // TODO: Use EventEmitter with form value
-    console.log(this.userForm.value)
+    console.log(this.userForm)
   }
+
+  get nextIsDisabled(){
+      switch(this.selectedSection){
+        case ClientFormSectionNames.PERSONAL:
+          return  this.userForm.get('firstName')?.invalid || this.userForm.get('lastName')?.invalid || this.userForm.get('personalId')?.invalid;
+        case ClientFormSectionNames.LEGAL_ADDRESS:
+          return this.userForm.get('legalAddress.country')?.invalid || this.userForm.get('legalAddress.city')?.invalid || this.userForm.get('legalAddress.address')?.invalid || this.userForm.get('phoneNumber')?.invalid 
+      
+        default: return true
+      } 
+       
+  } 
 }

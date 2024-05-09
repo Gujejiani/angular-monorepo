@@ -1,9 +1,9 @@
-import { ApplicationConfig, importProvidersFrom } from '@angular/core';
-import { provideRouter, withEnabledBlockingInitialNavigation } from '@angular/router';
+import { ApplicationConfig } from '@angular/core';
+import { provideRouter, withComponentInputBinding, withEnabledBlockingInitialNavigation } from '@angular/router';
 import { appRoutes } from './app.routes';
-import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
-import { BrowserModule } from '@angular/platform-browser';
+import {  provideAnimations } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter( appRoutes,  withEnabledBlockingInitialNavigation()), provideAnimations() ],
+  providers: [provideRouter( appRoutes,  withEnabledBlockingInitialNavigation(), withComponentInputBinding()), provideAnimations(),  ],
+  
 };

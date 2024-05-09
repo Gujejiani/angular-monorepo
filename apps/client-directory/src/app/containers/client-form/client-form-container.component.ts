@@ -1,8 +1,10 @@
-import { UIClientFormComponent } from '@angular-monorepo/shared-ui';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { UserService } from './../../services/user.service';
+import { UIClientFormComponent, maxImumNumberOfUserFormPages } from '@angular-monorepo/shared-ui';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { ClientFormSections } from 'libraries/shared-ui/src/lib/models';
+import { Router, RouterModule } from '@angular/router';
+import { ClientFormSectionNames } from 'libraries/shared-ui/src/lib/models';
+import {  FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-client-form',
@@ -12,13 +14,43 @@ import { ClientFormSections } from 'libraries/shared-ui/src/lib/models';
   styleUrl: './client-form-container.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ClientFormComponent {
- selectedSection = ClientFormSections.PERSONAL
-  SECTIONS = ClientFormSections
+export class ClientFormComponent  implements OnInit {
+ selectedSection = ClientFormSectionNames.PERSONAL;
+  SECTIONS = ClientFormSectionNames;
 
-  selectionChanged(selection: number) {
-      if(selection<3){
-          this.selectedSection = selection
+  ngOnInit(): void {
+    this.loadFormFromLocalStorage();
+  }
+  constructor( private userService: UserService, private router: Router) {}
+  userForm: FormGroup = this.userService.getUserForm();
+  @Input({
+    transform: (value: string) => Number(value),
+  }) id  = 0;
+  /**
+   * 
+   * @param formPageIndex 
+   */
+  formPageIndexChanged(formPageIndex: number) {
+      if(formPageIndex<maxImumNumberOfUserFormPages){
+          this.router.navigate(['/add-client', formPageIndex])
       }
+      this.saveFormToLocalStorage()
+  }
+  /**
+   * Save form values to local storage
+   */
+  saveFormToLocalStorage(): void {
+    const formValues = this.userForm.value;
+    localStorage.setItem('userFormData', JSON.stringify(formValues));
+  }
+  /**
+   * Load form values from local storage
+   */
+  loadFormFromLocalStorage(): void {
+    const storedFormValues = localStorage.getItem('userFormData');
+    if (storedFormValues) {
+      const parsedFormValues = JSON.parse(storedFormValues);
+      this.userForm.patchValue(parsedFormValues);
+    }
   }
 }

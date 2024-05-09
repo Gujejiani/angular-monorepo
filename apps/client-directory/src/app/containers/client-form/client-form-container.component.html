@@ -1,10 +1,13 @@
 <div class="form" >
     <div class="form__info" >
         <h4 class="form__info-title"  >{{ 
-        selectedSection===SECTIONS.PERSONAL ? "Create Client" : selectedSection===SECTIONS.LEGAL_ADDRESS ? 'Legal Address': 'Factual Address'}}</h4>
+        id===SECTIONS.PERSONAL ? "Create Client" : id===SECTIONS.LEGAL_ADDRESS ? 'Legal Address': 'Factual Address'}}</h4>
 
     </div>
     <lib-client-form
-    [selectedSection]="selectedSection"
-    (sectionChange)="selectionChanged($event)" ></lib-client-form>
+    [selectedSection]="id"
+    [userForm]="userForm"
+    (sectionChange)="formPageIndexChanged($event)"
+    
+    ></lib-client-form>
 </div>
