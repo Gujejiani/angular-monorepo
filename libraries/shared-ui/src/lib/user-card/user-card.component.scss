@@ -1,13 +1,12 @@
 @import './../../../../../tools/tools.scss';
 
 .user-card {
-    // background-color: black;
+
     color: var(--primary-color);
     border-radius: 8px;
     box-shadow: var(--light-shadow);
     padding: 20px;
     max-width: 340px;
-    // border: 1px solid var(--primary-color);
     box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.1);
     @include element('buttons'){
         display: flex;

@@ -22,7 +22,7 @@ export class UsersEffects {
             const userWithId = { ...action.payload, id: uuidv4() }
         
             return  this.apiService.apiCall(CREATE_USER, userWithId).pipe(
-            map(_users => userActions.SUCCESS_MESSAGE_ACTION({
+            map(() => userActions.SUCCESS_MESSAGE_ACTION({
                 title: 'Success',
                 message: 'User created successfully!',
                 success: true
@@ -41,17 +41,24 @@ export class UsersEffects {
         ofType(userActions.GET_USERS_ACTION, userActions.SUCCESS_MESSAGE_ACTION),
         switchMap( () => {
             return  this.apiService.apiCall(GET_USERS).pipe(
-            map((users) => {
+            map( (users) => {
                 const usersData = users as unknown as UserModel[]
                 console.log(users)
                 return userActions.GET_USERS_SUCCESS(usersData)
             },
-            catchError(() => of(userActions.ERROR_ACTION({
-                title: 'Error Ocurred',
-                message: "Can't fetch users",
-                success: false
-            })))
-        ))
+            
+        ),
+        catchError( () => {
+            return of(userActions.ERROR_ACTION({
+            title: 'Error Ocurred',
+            message: "Can't fetch users",
+            success: false
+        }))}
+        
+        
+        )
+        
+        )
         
         })
     ))

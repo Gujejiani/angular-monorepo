@@ -1,0 +1,63 @@
+@import '../../../../../../tools/tools.scss';
+
+.user-detail {
+    background-color: var(--light-gray-color);
+    color: var(--dark-gray-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--light-shadow);
+    @include element('info'){
+        margin-top: 20px;
+    }
+    @include element('user-section'){
+        background-color: var(--white-color);
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+        box-shadow: var(--light-shadow);
+        h2 {
+            color: var(--black-color);
+            margin-bottom: 15px;
+          }
+    }
+    @include element('user-data'){
+        margin-left: 20px;
+        @include modifier('personal'){
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 500px;
+            flex-wrap: wrap;
+            img{
+                max-width: 200px;
+                border-radius: 4px;
+               
+            }
+        }
+    }
+    @include element('personal'){
+        margin-left: 40px;
+    }
+
+    @include element('account-item'){
+        background-color: var(--primary-bg);
+        color: var(--primary-color);
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        p {
+            margin: 5px 0;
+          }
+    }
+    @include element('user-info'){
+        margin-top: 20px;
+    }
+  }
+  
+
+
+ 
+  
+  

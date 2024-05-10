@@ -1,1 +1,49 @@
-<p>client-detail container works!</p>
+<div class="user-detail">
+   
+    <div class="user-detail__user-info">
+      <div class="user-detail__user-section">
+        <h2>Personal Information</h2>
+        <div class="user-detail__user-data user-detail__user-data--personal">
+        <img   [src]="user.photo" alt="User Photo"> 
+        <div class="user-detail__personal" >
+
+     
+          <p><strong>ID:</strong> {{ user.id }}</p>
+          <p><strong>firstName:</strong> {{ user.firstName }} </p>
+          <p><strong>lastName:</strong> {{ user.lastName }} </p>
+          <p><strong>Gender:</strong> {{ user.gender }}</p>
+          <p><strong>Personal ID:</strong> {{ user.personalId }}</p>
+          <p><strong>Phone Number:</strong> {{ user.phoneNumber }}</p>
+        </div>
+       
+        </div>
+      </div>
+      <div class="user-detail__user-section">
+        <h2>Legal Address</h2>
+        <div class="user-detail__user-data">
+          <p><strong>Country:</strong> {{ user.legalAddress.country }}</p>
+          <p><strong>City:</strong> {{ user.legalAddress.city }}</p>
+          <p><strong>Address:</strong> {{ user.legalAddress.address }}</p>
+        </div>
+      </div>
+      <div class="user-detail__user-section">
+        <h2>FactualAddress Address</h2>
+        <div class="user-detail__user-data">
+          <p><strong>Country:</strong> {{ user.factualAddress.country }}</p>
+          <p><strong>City:</strong> {{ user.factualAddress.city }}</p>
+          <p><strong>Address:</strong> {{ user.factualAddress.address }}</p>
+        </div>
+      </div>
+      <div class="user-detail__user-section">
+        <h2>Accounts</h2>
+        <div *ngFor="let account of user.accounts" class="user-detail__account-item" [ngClass]="{ 'active': account.status === 'active', 'closed': account.status === 'closed' }">
+          <p><strong>Account Number:</strong> {{ account.accountNumber }}</p>
+          <p><strong>Client Number:</strong> {{ account.clientNumber }}</p>
+          <p><strong>Account Type:</strong> {{ account.accountType }}</p>
+          <p><strong>Currency:</strong> {{ account.currency }}</p>
+          <p><strong>Status:</strong> {{ account.status }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
