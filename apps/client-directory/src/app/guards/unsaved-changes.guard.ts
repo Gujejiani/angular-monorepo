@@ -6,7 +6,7 @@ export const unsavedChangesGuard: CanDeactivateFn<ClientFormContainerComponent> 
 
   const insideFormNav = localStorage.getItem('insideFormNav');
 
-
+  
   if (component?.userForm?.touched && !insideFormNav) {
     return confirm('You have unsaved changes. Do you really want to leave?');
   }

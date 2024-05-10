@@ -2,7 +2,7 @@ import { UserService } from './../../services/user.service';
 import { UIClientFormContainerComponent, maxImumNumberOfUserFormPages, UserModel } from '@angular-monorepo/shared-ui';
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 import { ClientFormSectionNames } from 'libraries/shared-ui/src/lib/models';
 import {  FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-client-form',
   standalone: true,
-  imports: [CommonModule, RouterModule, UIClientFormContainerComponent],
+  imports: [CommonModule ,UIClientFormContainerComponent],
   templateUrl: './client-form-container.component.html',
   styleUrl: './client-form-container.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -28,8 +28,8 @@ export class ClientFormContainerComponent  implements OnInit {
  selectedSection = ClientFormSectionNames.PERSONAL;
  SECTIONS = ClientFormSectionNames;
  editingUser$: Observable<UserModel | undefined> | null =null;
-  userForm: FormGroup = this.userService.getUserForm();
-  @Input({
+ @Input({required: true}) userForm: FormGroup  =new FormGroup({});
+@Input({
     transform: (value: string) => Number(value),
   }) id  = 0;
 
@@ -39,7 +39,7 @@ export class ClientFormContainerComponent  implements OnInit {
    * @param formPageIndex 
    */
   formPageIndexChanged(formPageIndex: number) {
-    
+      console.log(this.id, 'id of route', formPageIndex)
       if(formPageIndex<maxImumNumberOfUserFormPages){
         localStorage.setItem('insideFormNav', 'true');
           this.router.navigate(['/add-client', formPageIndex], {

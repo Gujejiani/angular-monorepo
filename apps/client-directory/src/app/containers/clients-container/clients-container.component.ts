@@ -28,4 +28,7 @@ export class ClientsContainerComponent {
       }
     })
   }
+  openDetailPage(id: number){
+    this.router.navigate([`/detail/${id}`])
+  }
 }
