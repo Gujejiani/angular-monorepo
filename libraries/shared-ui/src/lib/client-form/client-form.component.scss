@@ -39,6 +39,13 @@
       @include modifier('secondary'){
         background-color: var(--secondary-color);
       }
+      @include modifier('delete'){
+        background-color: var(--error-color);
+        opacity: 0.5;
+        @include hover-supported(){
+            opacity: 1;
+        }
+    }
       @include modifier('disabled'){
         opacity: 0.3 ;
       }

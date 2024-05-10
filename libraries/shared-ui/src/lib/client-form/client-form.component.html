@@ -137,8 +137,15 @@
         <button (click)="onPrevClick($event)" class="form-btn form-btn--secondary ">Prev</button>
 
     }
+    @if (editUser) {
+        <button type="button" (click)="onDeleteUser()"  class="form-btn  form-btn--delete">Delete</button>
 
-    <button type="submit" [disabled]="!userForm.valid" [ngClass]="{'form-btn--disabled': !userForm.valid}" class="form-btn ">Submit</button>
+        <button type="submit" [disabled]="!userForm.dirty" [ngClass]="{'form-btn--disabled': !userForm.dirty}" class="form-btn ">UPDATE</button>
+
+    }@else {
+        <button type="submit" [disabled]="!userForm.valid" [ngClass]="{'form-btn--disabled': !userForm.valid}" class="form-btn ">Submit</button>
+
+    }
    </div>
     
 <div class="form__status" >

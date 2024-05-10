@@ -2,6 +2,7 @@ import { UserService } from './../../services/user.service';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserCardComponent } from '@angular-monorepo/shared-ui';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clients-container',
@@ -12,12 +13,19 @@ import { UserCardComponent } from '@angular-monorepo/shared-ui';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ClientsContainerComponent {
-  constructor(private UserService: UserService){
+  constructor(private UserService: UserService, private router: Router){
 
   }
   users$ = this.UserService.getUsers();
 
   deleteUser(id: number){
     this.UserService.deleteUser(id)
+  }
+  editUser(id: number){
+    this.router.navigate([`/add-client/0`,], {
+      queryParams: {
+        editingId: id
+      }
+    })
   }
 }

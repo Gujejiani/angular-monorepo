@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { ClientFormSectionNames, UserModel } from 'libraries/shared-ui/src/lib/models';
 import {  FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-client-form',
@@ -16,34 +17,48 @@ import {  FormGroup } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ClientFormContainerComponent  implements OnInit {
- selectedSection = ClientFormSectionNames.PERSONAL;
-  SECTIONS = ClientFormSectionNames;
+  constructor( private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadFormFromLocalStorage();
+    if(this.editingId){
+      this.editingUser$ = this.userService.getUSerById(this.editingId)
+    }
   }
-  constructor( private userService: UserService, private router: Router, private store: Store) {}
+
+ selectedSection = ClientFormSectionNames.PERSONAL;
+ SECTIONS = ClientFormSectionNames;
+ editingUser$: Observable<UserModel | undefined> | null =null;
   userForm: FormGroup = this.userService.getUserForm();
   @Input({
     transform: (value: string) => Number(value),
   }) id  = 0;
+
+  @Input() editingId = '';
   /**
    * 
    * @param formPageIndex 
    */
   formPageIndexChanged(formPageIndex: number) {
-     
+    
       if(formPageIndex<maxImumNumberOfUserFormPages){
         localStorage.setItem('insideFormNav', 'true');
           this.router.navigate(['/add-client', formPageIndex], {
-          
+          queryParamsHandling: 'preserve',
           })   
       }
       this.saveFormToLocalStorage()
   }
-  fromSubmitted(newUser: UserModel){
+  fromSubmitted({user, update}: {user: UserModel, update?: boolean}){
 
-    this.userService.createUser(newUser)
+    if(!update){
+      this.userService.createUser(user)
+
+    }else {
+   
+      user.id = this.editingId as any
+      this.userService.updateUser(user)  
+    }
   }
   /**
    * Save form values to local storage
@@ -61,5 +76,8 @@ export class ClientFormContainerComponent  implements OnInit {
       const parsedFormValues = JSON.parse(storedFormValues);
       this.userForm.patchValue(parsedFormValues);
     }
+  }
+  deleteUser(id: number) {
+    this.userService.deleteUser(id)
   }
 }

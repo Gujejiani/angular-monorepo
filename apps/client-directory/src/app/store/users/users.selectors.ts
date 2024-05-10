@@ -7,3 +7,5 @@ const  selectUsersState = createFeatureSelector<UsersState>('users');
 
 
 export const selectUsers = createSelector(selectUsersState, (state: UsersState) => state?.users)
+
+export const selectUserById = (id: string) => createSelector(selectUsers, (users) => users?.find(user => String(user.id) === id))

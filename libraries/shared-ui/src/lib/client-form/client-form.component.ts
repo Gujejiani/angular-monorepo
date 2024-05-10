@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StatusBarComponent } from '../status-bar/status-bar.component';
 import { ClientFormSectionNames, UserModel } from '../models';
@@ -19,8 +19,13 @@ import { slideFadeAnimation } from '../animation/animations';
   ]
 })
 
-export class UIClientFormContainerComponent {
+export class UIClientFormContainerComponent implements OnInit {
   constructor( private cdr: ChangeDetectorRef) {}
+  ngOnInit(): void {
+      if(this.editUser){
+        this.userForm.patchValue(this.editUser)
+      }
+  }
   SECTIONS = ClientFormSectionNames
   @Input({
     required: true
@@ -29,8 +34,12 @@ export class UIClientFormContainerComponent {
     required: true
   }) userForm: FormGroup = new FormGroup({})
 
+  @Input() editUser: UserModel | null | undefined = null
+
   @Output() sectionChange = new EventEmitter<ClientFormSectionNames>()
-  @Output() fromSubmitted = new EventEmitter<UserModel>()
+  @Output() fromSubmitted = new EventEmitter<{user: UserModel, update?: boolean}>()
+  @Output() deleteUser = new EventEmitter<number>();
+  
 
   isRightButtonClick=true
   onNextClick($event: MouseEvent){
@@ -47,10 +56,18 @@ export class UIClientFormContainerComponent {
     this.isRightButtonClick =false
     this.cdr.markForCheck()
   }
+  onDeleteUser(){
+    if(this.editUser?.id){
+      
+      this.deleteUser.emit(this.editUser.id)
+    }
+   
+  
+  }
   onSubmit() {
     // anyway second check
     if(this.userForm.valid){
-      this.fromSubmitted.emit(this.userForm.value)
+      this.fromSubmitted.emit({user: this.userForm.value, update: this.editUser !== null})
     }
 
   }

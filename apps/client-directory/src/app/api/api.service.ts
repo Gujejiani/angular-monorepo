@@ -8,15 +8,16 @@ export class APIService {
 
 
   apiCall(endPointInfo: EndPointModel, args?: any){
+
     switch (endPointInfo.method) {
         case 'GET':
             return this.get(`${endPointInfo.url}${endPointInfo.api}`);
         case 'POST':
             return this.post(`${endPointInfo.url}${endPointInfo.api}`, args);
         case 'PATCH':
-            return this.patch(`${endPointInfo.url}${endPointInfo.api}`, args);
+            return this.patch(`${endPointInfo.url}${endPointInfo.api}/${args?.id}`, args);
         case 'DELETE':
-          console.log('apiiii ', args)
+       
             return this.delete(`${endPointInfo.url}${endPointInfo.api}/${args?.id}`);
         default:
             return this.get(`${endPointInfo.url}${endPointInfo.api}`);

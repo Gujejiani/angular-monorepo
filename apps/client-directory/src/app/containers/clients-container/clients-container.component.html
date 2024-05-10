@@ -11,7 +11,11 @@
         
     
             @for(user of users$ | async; track user.id){
-                <lib-user-card [user]="user" (deleteUser)="deleteUser($event)" >
+                <lib-user-card 
+                [user]="user"
+                (editUser)="editUser($event)"
+               
+                (deleteUser)="deleteUser($event)" >
 
                 </lib-user-card>
             }

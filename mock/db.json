@@ -1,44 +1,6 @@
 {
   "users": [
     {
-      "id": "a7655be3-e7ad-42f7-b379-0cf88f9c3500",
-      "firstName": "Davit",
-      "lastName": "Khidasheli",
-      "legalAddress": {
-        "country": "Georgia",
-        "city": "Tbilisi",
-        "address": "Georgia"
-      },
-      "factualAddress": {
-        "country": "Georgia",
-        "city": "Tbilisi",
-        "address": "Georgia"
-      },
-      "photo": "",
-      "gender": "male",
-      "personalId": "23232323223",
-      "phoneNumber": "598829272"
-    },
-    {
-      "id": "7dae784f-d8fc-4122-85cc-1022f0ff186a",
-      "firstName": "Davit",
-      "lastName": "Khidasheli",
-      "legalAddress": {
-        "country": "Georgia",
-        "city": "Tbilisi",
-        "address": "Georgia"
-      },
-      "factualAddress": {
-        "country": "Georgia",
-        "city": "Tbilisi",
-        "address": "Georgia"
-      },
-      "photo": "",
-      "gender": "male",
-      "personalId": "23232323223",
-      "phoneNumber": "598829272"
-    },
-    {
       "id": "b5926058-bde0-4580-949a-afdc39f5b3ee",
       "firstName": "kakha",
       "lastName": "wsda",
@@ -55,6 +17,44 @@
       "photo": "",
       "gender": "male",
       "personalId": "23232323223",
+      "phoneNumber": "598829272"
+    },
+    {
+      "id": "1951d4db-c7b5-4887-abd7-63cefe327929",
+      "firstName": "updated",
+      "lastName": "Gujejiani",
+      "legalAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "factualAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "photo": "",
+      "gender": "male",
+      "personalId": "22001035120",
+      "phoneNumber": "598829272"
+    },
+    {
+      "id": "3f7e40b4-6b4a-472f-8935-c23cea38bbea",
+      "firstName": "updatesec",
+      "lastName": "Gujejiani ",
+      "legalAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "factualAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "photo": "",
+      "gender": "male",
+      "personalId": "22001035120",
       "phoneNumber": "598829272"
     }
   ]

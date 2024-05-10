@@ -9,7 +9,7 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 import { APIService } from '../../api/api.service';
 import * as userActions from './users.actions'
 import { Injectable } from '@angular/core';
-import { CREATE_USER, DELETE_USER, GET_USERS } from '../../api/endpoints';
+import { CREATE_USER, DELETE_USER, GET_USERS, UPDATE_USER } from '../../api/endpoints';
 import { UserModel } from '@angular-monorepo/shared-ui';
 import { v4 as uuidv4 } from 'uuid';
 @Injectable()
@@ -30,7 +30,7 @@ export class UsersEffects {
     ));
 
     fetchUsers$ = createEffect(() => this.actions$.pipe(
-        ofType(userActions.GET_USERS,userActions.CREATE_USER_SUCCESS, userActions.DELETE_USER_SUCCESS),
+        ofType(userActions.GET_USERS_ACTION,userActions.CREATE_USER_SUCCESS, userActions.DELETE_USER_SUCCESS),
         switchMap( () => {
             return  this.apiService.apiCall(GET_USERS).pipe(
             map((users) => {
@@ -49,6 +49,19 @@ export class UsersEffects {
             return  this.apiService.apiCall(DELETE_USER, {id: action.payload}).pipe(
             map((users) => {
                     console.log('user deleted res ', users)
+                return userActions.DELETE_USER_SUCCESS()
+            },
+            catchError(() => of({ type: '[Users API] Users Loaded Error' }))
+        ))
+        
+        })
+    ))
+    updateUser$ = createEffect(() => this.actions$.pipe(
+        ofType(userActions.UPDATE_USER_ACTION),
+        switchMap( (action) => {
+            return  this.apiService.apiCall(UPDATE_USER, action.payload).pipe(
+            map((_users) => {
+
                 return userActions.DELETE_USER_SUCCESS()
             },
             catchError(() => of({ type: '[Users API] Users Loaded Error' }))

@@ -9,7 +9,7 @@ export class UserService {
     constructor(private formBuilder: FormBuilder, private store: Store) {}
 
   fetchUsers(){
-    this.store.dispatch(Actions.GET_USERS())
+    this.store.dispatch(Actions.GET_USERS_ACTION())
   
   }
 
@@ -17,9 +17,18 @@ export class UserService {
    return this.store.select(Selectors.selectUsers)
   }
   
+  getUSerById(id: string){
+    return this.store.select(Selectors.selectUserById(id))
+  
+  }
 
   createUser(user: UserModel){
         this.store.dispatch(Actions.CREATE_USER_ACTION(user))
+  }
+  updateUser(user: UserModel){
+
+    this.store.dispatch(Actions.UPDATE_USER_ACTION(user))
+  
   }
 
   deleteUser(id: number){
@@ -46,8 +55,8 @@ export class UserService {
             photo: [''],
             gender: ['male', [Validators.required, genderValidator()]],
             personalId: ['',[Validators.required, Validators.minLength(11), Validators.maxLength(11), Validators.pattern('^[0-9]*$')]],
-            phoneNumber: ['',[Validators.required,  Validators.minLength(9), Validators.maxLength(9), Validators.pattern('^[0-9]*$'), startsWithValidator('5')]],
-            
+            phoneNumber: ['',[Validators.required,  Validators.minLength(9), Validators.maxLength(9), Validators.pattern('^[0-9]*$'), startsWithValidator('5')]],  
+
           });
     }
 }

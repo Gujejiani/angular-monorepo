@@ -13,7 +13,7 @@ export const CREATE_USER_ACTION = createAction('create user action',
  (payload: boolean) => ({ payload })
  );
 
- export const GET_USERS = createAction('get users '
+ export const GET_USERS_ACTION = createAction('get users '
  );
  export const GET_USERS_SUCCESS = createAction('get users success',
  (payload: UserModel[]) => ({ payload })
@@ -22,4 +22,9 @@ export const CREATE_USER_ACTION = createAction('create user action',
  export const DELETE_USER = createAction('delete  user', (payload: number) => ({ payload })
  );
  export const DELETE_USER_SUCCESS = createAction('user deleted success '
+ );
+
+ export const UPDATE_USER_ACTION = createAction('update  user', (payload: UserModel) => ({ payload })
+ );
+ export const UPDATE_USER_SUCCESS = createAction('update  user success', (payload: number) => ({ payload })
  );
