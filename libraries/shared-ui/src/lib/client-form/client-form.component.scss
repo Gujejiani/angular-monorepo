@@ -6,8 +6,7 @@
   background-color: var(--primary-bg);
   color: var(--primary-color);
   border-radius: 10px;
- 
-  box-shadow: var(--light-shadow);
+  overflow: hidden;
     @include part('group'){
         margin-bottom: 20px;
         position: relative;

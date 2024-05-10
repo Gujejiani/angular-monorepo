@@ -22,15 +22,23 @@ export class UsersEffects {
             const userWithId = { ...action.payload, id: uuidv4() }
         
             return  this.apiService.apiCall(CREATE_USER, userWithId).pipe(
-            map(_users => userActions.CREATE_USER_SUCCESS()),
-            catchError(() => of({ type: '[Users API] Users Loaded Error' }))
+            map(_users => userActions.SUCCESS_MESSAGE_ACTION({
+                title: 'Success',
+                message: 'User created successfully!',
+                success: true
+            })),
+            catchError(() => of(userActions.ERROR_ACTION({
+                title: 'Error Ocurred',
+                message: "Can't Create New User",
+                success: false
+            })))
         )
         
         })
     ));
 
     fetchUsers$ = createEffect(() => this.actions$.pipe(
-        ofType(userActions.GET_USERS_ACTION,userActions.CREATE_USER_SUCCESS, userActions.DELETE_USER_SUCCESS),
+        ofType(userActions.GET_USERS_ACTION, userActions.SUCCESS_MESSAGE_ACTION),
         switchMap( () => {
             return  this.apiService.apiCall(GET_USERS).pipe(
             map((users) => {
@@ -38,7 +46,11 @@ export class UsersEffects {
                 console.log(users)
                 return userActions.GET_USERS_SUCCESS(usersData)
             },
-            catchError(() => of({ type: '[Users API] Users Loaded Error' }))
+            catchError(() => of(userActions.ERROR_ACTION({
+                title: 'Error Ocurred',
+                message: "Can't fetch users",
+                success: false
+            })))
         ))
         
         })
@@ -49,9 +61,17 @@ export class UsersEffects {
             return  this.apiService.apiCall(DELETE_USER, {id: action.payload}).pipe(
             map((users) => {
                     console.log('user deleted res ', users)
-                return userActions.DELETE_USER_SUCCESS()
+                return userActions.SUCCESS_MESSAGE_ACTION({
+                    title: 'Success',
+                    message: 'User deleted successfully!',
+                    success: true
+                })
             },
-            catchError(() => of({ type: '[Users API] Users Loaded Error' }))
+            catchError(() => of(userActions.ERROR_ACTION({
+                title: 'Error Ocurred',
+                message: 'Error deleting user',
+                success: false
+            })))
         ))
         
         })
@@ -62,9 +82,17 @@ export class UsersEffects {
             return  this.apiService.apiCall(UPDATE_USER, action.payload).pipe(
             map((_users) => {
 
-                return userActions.DELETE_USER_SUCCESS()
+                return userActions.SUCCESS_MESSAGE_ACTION({
+                    title: 'Success',
+                    message: 'User updated successfully!',
+                    success: true
+                })
             },
-            catchError(() => of({ type: '[Users API] Users Loaded Error' }))
+            catchError(() => of(userActions.ERROR_ACTION({
+                title: 'Error Ocurred',
+                message: "Can't update users",
+                success: false
+            })))
         ))
         
         })

@@ -1,5 +1,6 @@
 import { UserModel } from '@angular-monorepo/shared-ui';
 import { createAction } from '@ngrx/store';
+import { ModalData } from '../../models/modal-data.model';
 
 
 export const CREATE_USER_ACTION = createAction('create user action',
@@ -21,10 +22,15 @@ export const CREATE_USER_ACTION = createAction('create user action',
 
  export const DELETE_USER = createAction('delete  user', (payload: number) => ({ payload })
  );
- export const DELETE_USER_SUCCESS = createAction('user deleted success '
- );
 
  export const UPDATE_USER_ACTION = createAction('update  user', (payload: UserModel) => ({ payload })
  );
- export const UPDATE_USER_SUCCESS = createAction('update  user success', (payload: number) => ({ payload })
+
+
+ export const ERROR_ACTION = createAction('error action', (payload: ModalData) => ({ payload }));
+
+
+export const SUCCESS_MESSAGE_ACTION = createAction('success message action', (payload: ModalData) => ({ payload }));
+
+ export const RESET_MODAL = createAction('reset modal  '
  );

@@ -1,10 +1,9 @@
-import { Store } from '@ngrx/store';
 import { UserService } from './../../services/user.service';
-import { UIClientFormContainerComponent, maxImumNumberOfUserFormPages } from '@angular-monorepo/shared-ui';
+import { UIClientFormContainerComponent, maxImumNumberOfUserFormPages, UserModel } from '@angular-monorepo/shared-ui';
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { ClientFormSectionNames, UserModel } from 'libraries/shared-ui/src/lib/models';
+import { ClientFormSectionNames } from 'libraries/shared-ui/src/lib/models';
 import {  FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 
@@ -53,7 +52,8 @@ export class ClientFormContainerComponent  implements OnInit {
 
     if(!update){
       this.userService.createUser(user)
-
+      this.userForm.reset()
+      this.router.navigate(['/add-client', 0],)  
     }else {
    
       user.id = this.editingId as any
@@ -79,5 +79,7 @@ export class ClientFormContainerComponent  implements OnInit {
   }
   deleteUser(id: number) {
     this.userService.deleteUser(id)
+    this.userForm.reset()
+    this.router.navigate(['/add-client', 0],)  
   }
 }

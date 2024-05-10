@@ -4,20 +4,26 @@ import { UserModel } from '@angular-monorepo/shared-ui';
 
 // define reducer
 
-import { createReducer, on, Action } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 
 import * as Actions from './users.actions'
+import { ModalData } from '../../models/modal-data.model';
 
 export interface UsersState {
     users: UserModel[],
     loading: boolean,
-    createUserSuccess: boolean
+    modalInfo: ModalData
 }
 
 export const initialState:  UsersState = {
     users:[],
     loading: false,
-    createUserSuccess: false
+    modalInfo: {
+        title: '',
+        message: '',
+        success: false,
+       
+    }
 }
 
 export const usersReducer = createReducer(
@@ -35,16 +41,34 @@ export const usersReducer = createReducer(
             loading: payload
         }
     }),
-    on(Actions.CREATE_USER_SUCCESS, (state) => {
+    on(Actions.SUCCESS_MESSAGE_ACTION, (state,  {payload}) => {
+    
         return {
             ...state,
-            createUserSuccess: true
+            modalInfo: payload
         }
     }),
+
     on(Actions.GET_USERS_SUCCESS, (state, {payload}) => {
         return {
             ...state,
             users: payload
+        }
+    }),
+    on(Actions.ERROR_ACTION, (state, {payload}) => {
+        return {
+            ...state,
+            modalInfo: payload
+        }
+    }),
+    on(Actions.RESET_MODAL, (state) => {
+        return {
+            ...state,
+            modalInfo: {
+                title: '',
+                message: '',
+                success: false,
+            }
         }
     }),
 );

@@ -1,0 +1,6 @@
+<div (click)="close()" class="modal-overlay"></div>
+<div (click)="close()" class="modal__content">
+    <h2 class="modal__title">{{modalInfo.title}}</h2>
+    <p class="modal__message" [ngClass]="{'modal__message--error': !modalInfo.success}" >{{modalInfo.message}}</p>
+    <button class="modal__button">CLOSE  </button>
+</div>
