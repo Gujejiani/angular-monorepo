@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserModel } from '@angular-monorepo/shared-ui';
 
 @Component({
   selector: 'app-client-detail',
@@ -9,8 +8,8 @@ import { UserModel } from '@angular-monorepo/shared-ui';
   templateUrl: './client-detail.component.html',
   styleUrl: './client-detail.component.scss',
 })
-export class ClientDetailComponent {
-
+export class ClientDetailComponent{
+ 
   @Input() user: any =  {
     id: 542323,
     firstName: "asd",

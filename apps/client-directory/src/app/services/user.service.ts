@@ -4,13 +4,20 @@ import { Injectable } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import * as Actions from '../store/users/users.actions';
 import * as Selectors from '../store/users/users.selectors';
+import { APIService } from '../api/api.service';
+import { GET_USERS } from '../api/endpoints';
 @Injectable({providedIn: 'root'})
 export class UserService {
-    constructor(private formBuilder: FormBuilder, private store: Store) {}
+    constructor(private formBuilder: FormBuilder, private store: Store, private apiService: APIService) {}
 
   fetchUsers(){
     this.store.dispatch(Actions.GET_USERS_ACTION())
   
+  }
+
+  fetchUserById(id: string) : any{
+ 
+    return  this.apiService.apiCall(GET_USERS, {id})
   }
 
   getUsers(){

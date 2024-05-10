@@ -1,6 +1,7 @@
 import { Route } from '@angular/router';
 import { unsavedChangesGuard } from './guards/unsaved-changes.guard';
 import { formGuard } from './guards/form.guard';
+import { userDetailResolver } from './resolver/detail.resolver';
 
 export const appRoutes: Route[] = [
     {
@@ -18,5 +19,6 @@ export const appRoutes: Route[] = [
     {
         path: 'detail/:id',
         loadComponent: () => import('./pages/detail/detail-page.component').then(c => c.DetailPageComponent),
+        resolve: {user: userDetailResolver},
     }
 ];

@@ -11,7 +11,9 @@ export class APIService {
 
     switch (endPointInfo.method) {
         case 'GET':
-            return this.get(`${endPointInfo.url}${endPointInfo.api}`);
+        
+            return this.get( args?.id ? `${endPointInfo.url}${endPointInfo.api}/${args.id}`:  `${endPointInfo.url}${endPointInfo.api}`);
+            
         case 'POST':
             return this.post(`${endPointInfo.url}${endPointInfo.api}`, args);
         case 'PATCH':

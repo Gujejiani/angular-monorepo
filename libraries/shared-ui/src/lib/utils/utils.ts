@@ -1,3 +1,24 @@
 export * from './form-uttis'
 
 export const maxImumNumberOfUserFormPages = 3
+
+
+export const mockUser = {
+    id: 542323,
+    firstName: "Mock User",
+    lastName: "from mock folder",
+    legalAddress: {
+      country: 'Georgia',
+      city: 'Tbilisi',
+      address: 'Georgia'
+    },
+    factualAddress: {
+      country: 'Georgia',
+      city: 'Tbilisi',
+      address: 'Georgia'
+    },
+    photo: './',
+    gender: 'male',
+    personalId: '23232323223',
+    phoneNumber: 598829272
+  }
