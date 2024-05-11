@@ -1,7 +1,12 @@
+import { statusEnum } from "./account-status-enum";
+import { AccountTypeEnum } from "./acountType-enum";
+import { CurrencyEnum } from "./currency-enum";
+
 export interface AccountModel {
+    accountId?: string;
     accountNumber: number; 
-    clientNumber: number; 
-    accountType: 'current' | 'savings' | 'deposit'; 
-    currency: 'GEL' | 'USD' | 'EUR'; 
-    status: 'active' | 'closed'; 
+    clientId: number; 
+    accountType: AccountTypeEnum 
+    currency: CurrencyEnum; 
+    status: statusEnum
   }

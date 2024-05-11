@@ -1,9 +1,11 @@
+import { UserModel } from '../models'
+
 export * from './form-uttis'
 
 export const maxImumNumberOfUserFormPages = 3
 
 
-export const mockUser = {
+export const mockUser: UserModel = {
     id: 542323,
     firstName: "Mock User",
     lastName: "from mock folder",

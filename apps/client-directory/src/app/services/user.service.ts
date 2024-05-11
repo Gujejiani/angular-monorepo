@@ -34,9 +34,9 @@ export class UserService {
   createUser(user: UserModel){
         this.store.dispatch(Actions.CREATE_USER_ACTION(user))
   }
-  updateUser(user: UserModel){
+  updateUser(user: UserModel, message?: string){
 
-    this.store.dispatch(Actions.UPDATE_USER_ACTION(user))
+    this.store.dispatch(Actions.UPDATE_USER_ACTION({user, message}))
   
   }
 
@@ -70,6 +70,10 @@ export class UserService {
   }
   navigateToCliensPage(){
     this.router.navigate(['/clients'])
+  }
+
+  createAccount(id: number){
+    this.router.navigate([`/create-account/${id}`,])
   }
     
     

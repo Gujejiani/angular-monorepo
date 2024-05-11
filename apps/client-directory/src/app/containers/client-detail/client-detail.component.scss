@@ -13,7 +13,7 @@
     }
     @include part('btn'){
         @include buttonStyles;
-       
+        opacity: 0.9;
         @include hover-supported(){
             opacity: 1;
         }

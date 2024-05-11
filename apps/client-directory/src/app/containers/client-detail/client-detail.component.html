@@ -4,16 +4,16 @@
       <div class="user-detail__user-section">
         <h2>Personal Information</h2>
         <div class="user-detail__user-data user-detail__user-data--personal">
-        <img   [src]="user.photo? user.photo:  'assets/default.jpeg'" alt="User Photo"> 
+        <img   [src]="user?.photo? user?.photo:  'assets/default.jpeg'" alt="User Photo"> 
         <div class="user-detail__personal" >
 
      
-          <p><strong>ID:</strong> {{ user.id }}</p>
-          <p><strong>firstName:</strong> {{ user.firstName }} </p>
-          <p><strong>lastName:</strong> {{ user.lastName }} </p>
-          <p><strong>Gender:</strong> {{ user.gender }}</p>
-          <p><strong>Personal ID:</strong> {{ user.personalId }}</p>
-          <p><strong>Phone Number:</strong> {{ user.phoneNumber }}</p>
+          <p><strong>ID:</strong> {{ user?.id }}</p>
+          <p><strong>firstName:</strong> {{ user?.firstName }} </p>
+          <p><strong>lastName:</strong> {{ user?.lastName }} </p>
+          <p><strong>Gender:</strong> {{ user?.gender }}</p>
+          <p><strong>Personal ID:</strong> {{ user?.personalId }}</p>
+          <p><strong>Phone Number:</strong> {{ user?.phoneNumber }}</p>
 
           <div class="user-detail__buttons" >
             <button type="button" (click)="onEditUser()"   class="user-detail-btn ">Edit</button>
@@ -26,28 +26,30 @@
       <div class="user-detail__user-section">
         <h2>Legal Address</h2>
         <div class="user-detail__user-data">
-          <p><strong>Country:</strong> {{ user.legalAddress.country }}</p>
-          <p><strong>City:</strong> {{ user.legalAddress.city }}</p>
-          <p><strong>Address:</strong> {{ user.legalAddress.address }}</p>
+          <p><strong>Country:</strong> {{ user?.legalAddress?.country }}</p>
+          <p><strong>City:</strong> {{ user?.legalAddress?.city }}</p>
+          <p><strong>Address:</strong> {{ user?.legalAddress?.address }}</p>
         </div>
       </div>
       <div class="user-detail__user-section">
         <h2>FactualAddress Address</h2>
         <div class="user-detail__user-data">
-          <p><strong>Country:</strong> {{ user.factualAddress.country }}</p>
-          <p><strong>City:</strong> {{ user.factualAddress.city }}</p>
-          <p><strong>Address:</strong> {{ user.factualAddress.address }}</p>
+          <p><strong>Country:</strong> {{ user?.factualAddress?.country }}</p>
+          <p><strong>City:</strong> {{ user?.factualAddress?.city }}</p>
+          <p><strong>Address:</strong> {{ user?.factualAddress?.address }}</p>
         </div>
       </div>
       <div class="user-detail__user-section">
         <h2>Accounts</h2>
-        <div *ngFor="let account of user.accounts" class="user-detail__account-item" [ngClass]="{ 'active': account.status === 'active', 'closed': account.status === 'closed' }">
-          <p><strong>Account Number:</strong> {{ account.accountNumber }}</p>
-          <p><strong>Client Number:</strong> {{ account.clientNumber }}</p>
+        <div *ngFor="let account of user?.accounts" class="user-detail__account-item" [ngClass]="{ 'active': account.status === ACCOUNT_STATUS.ACTIVE, 'inactive': account.status === ACCOUNT_STATUS.INACTIVE }">
+          <p><strong>Account Number:</strong> {{ account.accountId }}</p>
+          <p><strong>Client Number:</strong> {{ account.clientId }}</p>
           <p><strong>Account Type:</strong> {{ account.accountType }}</p>
           <p><strong>Currency:</strong> {{ account.currency }}</p>
           <p><strong>Status:</strong> {{ account.status }}</p>
         </div>
+        <button (click)="onCreateAccount()" class="user-detail-btn" >Crete New Account</button>
+
       </div>
     </div>
   </div>

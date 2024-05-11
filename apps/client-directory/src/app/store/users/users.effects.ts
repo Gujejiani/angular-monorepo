@@ -86,18 +86,19 @@ export class UsersEffects {
     updateUser$ = createEffect(() => this.actions$.pipe(
         ofType(userActions.UPDATE_USER_ACTION),
         switchMap( (action) => {
-            return  this.apiService.apiCall(UPDATE_USER, action.payload).pipe(
+          
+            return  this.apiService.apiCall(UPDATE_USER, action.payload.user).pipe(
             map((_users) => {
 
                 return userActions.SUCCESS_MESSAGE_ACTION({
                     title: 'Success',
-                    message: 'User updated successfully!',
+                    message: action.payload.message?? 'User updated successfully!',
                     success: true
                 })
             },
             catchError(() => of(userActions.ERROR_ACTION({
                 title: 'Error Ocurred',
-                message: "Can't update users",
+                message:  "Can't update users",
                 success: false
             })))
         ))

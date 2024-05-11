@@ -1,0 +1,65 @@
+@import '../../../../../../tools/tools.scss';
+
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 100px;
+  background-color: var(--primary-bg);
+  color: var(--primary-color);
+  border-radius: 10px;
+  overflow: hidden;
+  @include part('btn'){
+    display: flex;
+    margin: auto;
+    @include buttonStyles;
+    opacity: 0.9;
+      @include hover-supported(){
+          opacity: 1;
+      }
+  }
+    @include part('group'){
+        margin-bottom: 20px;
+        position: relative;
+    }
+    @include element('status'){
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @include element('status-bar'){
+      margin-top: 50px;
+      position: relative;
+    }
+    @include element('buttons'){
+      display: flex;
+      gap: 16px;
+    }
+    
+  }
+  
+  
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--gray-color);
+    border-radius: 5px;
+    background-color: var(--white-color);
+    color: var(--dark-gray-color);
+    outline-color: white;
+    @include modifier('invalid'){
+      border-color: var(--error-color);
+    }
+  }
+  
+ 
+

@@ -3,7 +3,7 @@ export const georgianPattern = /^[\u10A0-\u10FF\s\d]*$/;
 export const englishPattern = /^[a-zA-Z\s\d]*$/; 
 // Custom validator function to check if the input contains only Latin letters
 export function patternValidator(georgianPattern: RegExp, englishPattern: RegExp): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } | null => {
+    return (control: AbstractControl): { [key: string]: string } | null => {
       const value = control.value;
       if (!value) {
         return null; 

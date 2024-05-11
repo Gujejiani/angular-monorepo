@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { mockUser } from '@angular-monorepo/shared-ui';
+import { statusEnum, UserModel, mockUser } from '@angular-monorepo/shared-ui';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -12,12 +12,23 @@ import { UserService } from '../../services/user.service';
 })
 export class ClientDetailComponent{
     constructor(private userService: UserService){}
-  @Input() user: any =  mockUser;
+  @Input() user: UserModel | null =  mockUser;
+  ACCOUNT_STATUS = statusEnum
   onEditUser(){
-    this.userService.editUser(this.user.id)
+    if(this.user){
+      this.userService.editUser(this.user.id as number)
+    }
+   
   }
 
   onDeleteUser(){
-    this.userService.deleteUser(this.user.id)
+    if(this.user){
+      this.userService.deleteUser(this.user.id as number)
+
+    }
+  }
+
+  onCreateAccount(){
+    this.userService.createAccount(this.user?.id as number)
   }
 }

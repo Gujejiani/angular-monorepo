@@ -23,7 +23,7 @@ export const CREATE_USER_ACTION = createAction('create user action',
  export const DELETE_USER = createAction('delete  user', (payload: number) => ({ payload })
  );
 
- export const UPDATE_USER_ACTION = createAction('update  user', (payload: UserModel) => ({ payload })
+ export const UPDATE_USER_ACTION = createAction('update  user', (payload: {user: UserModel, message?: string}) => ({ payload })
  );
 
 
