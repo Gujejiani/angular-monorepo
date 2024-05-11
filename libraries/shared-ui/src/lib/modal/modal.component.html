@@ -1,6 +1,14 @@
-<div (click)="close()" class="modal-overlay"></div>
-<div (click)="close()" class="modal__content">
+<div (click)="close(false)" class="modal-overlay"></div>
+<div class="modal__content">
     <h2 class="modal__title">{{modalInfo.title}}</h2>
-    <p class="modal__message" [ngClass]="{'modal__message--error': !modalInfo.success}" >{{modalInfo.message}}</p>
-    <button class="modal__button">CLOSE  </button>
+    <p class="modal__message" [ngClass]="{'modal__message--error': !modalInfo.success, 'modal__message--info': modalInfo.confirmButtonText}" >{{modalInfo.message}}</p>
+    <div class="modal__buttons" >
+        @if(modalInfo.confirmButtonText){
+            <button class="modal__button modal__button--danger" (click)="close(true)"  > {{ modalInfo.confirmButtonText}}  </button>
+
+        }
+
+        <button  (click)="close(false)" class="modal__button"> {{ modalInfo.confirmButtonText ?'Cancel': 'Close' }}</button>
+    </div>
+    
 </div>

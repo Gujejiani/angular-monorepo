@@ -1,3 +1,4 @@
+import { AppModalService } from './app-modal.service';
 import { Store } from '@ngrx/store';
 import { UserModel, englishPattern, genderValidator, georgianPattern, patternValidator, startsWithValidator } from "@angular-monorepo/shared-ui";
 import { Injectable } from "@angular/core";
@@ -9,7 +10,7 @@ import { GET_USERS } from '../api/endpoints';
 import { Router } from '@angular/router';
 @Injectable({providedIn: 'root'})
 export class UserService {
-    constructor(private formBuilder: FormBuilder, private store: Store, private apiService: APIService, private router: Router) {}
+    constructor(private formBuilder: FormBuilder, private store: Store, private apiService: APIService, private router: Router, private appModalService: AppModalService) {}
 
   fetchUsers(){
     this.store.dispatch(Actions.GET_USERS_ACTION())
@@ -40,7 +41,23 @@ export class UserService {
   }
 
   deleteUser(id: number){
-    this.store.dispatch(Actions.DELETE_USER(id))
+    this.appModalService.showModal({
+      title: 'Delete user',
+      message: 'Are you sure you want to delete this user?',
+      success: false,
+      returnOutput: true,
+      confirmButtonText: 'Confirm'
+    })?.subscribe((confirm)=>{
+          if(confirm){
+            this.store.dispatch(Actions.DELETE_USER(id))
+            this.appModalService.closeModal()
+            this.navigateToCliensPage()
+          }else {
+            this.appModalService.closeModal()
+          }
+     
+    })
+  
   }
 
 

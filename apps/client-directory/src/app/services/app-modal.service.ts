@@ -1,7 +1,7 @@
 import { Store } from '@ngrx/store';
 import { Injectable, ComponentFactoryResolver, Injector, ApplicationRef, EmbeddedViewRef, ComponentRef } from "@angular/core";
-import { ModalComponent } from "@angular-monorepo/shared-ui";
-import { Subject, take } from 'rxjs';
+import { ModalComponent, ModalData } from "@angular-monorepo/shared-ui";
+import { Observable, Subject, take } from 'rxjs';
 import { selectModalInfo } from '../store/users/users.selectors';
 import { RESET_MODAL } from '../store/users/users.actions';
 
@@ -19,13 +19,13 @@ export class AppModalService {
   // todo remove if won't be  needed
   modalOutput$ = this.modalOutputSubject.asObservable();
   storeSubscription$ :any
-  // Attaches modal component to the DOM body with input data
-  showModal(data: {
-    title: string,
-    message: string,
-    success: boolean
-  
-  }): void {
+  /**
+   * 
+   * @param data modal data 
+   * @param returnOutput if true, the modal will return the output and the caller will have to subscribe and close modal afterwards
+   * @returns 
+   */
+  showModal(data: ModalData): void | Observable<any>  {
     
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(ModalComponent);
      this.componentRef = componentFactory.create(this.injector);
@@ -33,7 +33,7 @@ export class AppModalService {
     // Pass input data to the component instance
     this.componentRef.instance.modalInfo = data;
 
-    // Subscribes to the output event of the modal component
+  
     this.componentRef.instance.closeModal.pipe(take(1)).subscribe(() => {
        this.closeModal()
     });
@@ -49,6 +49,11 @@ export class AppModalService {
         }
    
     });
+
+      // Subscribes to the output event of the modal component
+      if(data.returnOutput){
+        return  this.componentRef.instance.closeModal.pipe(take(1))
+      }
   }
 
 /**

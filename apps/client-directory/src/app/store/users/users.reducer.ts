@@ -1,4 +1,4 @@
-import { UserModel } from '@angular-monorepo/shared-ui';
+import { ModalData, UserModel } from '@angular-monorepo/shared-ui';
 
 
 
@@ -7,7 +7,6 @@ import { UserModel } from '@angular-monorepo/shared-ui';
 import { createReducer, on } from '@ngrx/store';
 
 import * as Actions from './users.actions'
-import { ModalData } from '../../models/modal-data.model';
 
 export interface UsersState {
     users: UserModel[],

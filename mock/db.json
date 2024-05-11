@@ -1,63 +1,6 @@
 {
   "users": [
     {
-      "id": "7deed3f1-8bb3-4eb6-b5c1-90a00f53de8c",
-      "firstName": "updated",
-      "lastName": "Gujejiani",
-      "legalAddress": {
-        "country": "Georgia",
-        "city": "Tbilisi",
-        "address": "Georgia"
-      },
-      "factualAddress": {
-        "country": "Georgia",
-        "city": "Tbilisi",
-        "address": "Georgia"
-      },
-      "photo": "",
-      "gender": "male",
-      "personalId": "22001035120",
-      "phoneNumber": "598829272"
-    },
-    {
-      "id": "1d72ee7f-9e16-44e1-974d-9df0477d66fe",
-      "firstName": "updated",
-      "lastName": "Gujejiani",
-      "legalAddress": {
-        "country": "Georgia",
-        "city": "Tbilisi",
-        "address": "Georgia"
-      },
-      "factualAddress": {
-        "country": "Georgia",
-        "city": "Tbilisi",
-        "address": "Georgia"
-      },
-      "photo": "",
-      "gender": "male",
-      "personalId": "22001035120",
-      "phoneNumber": "598829272"
-    },
-    {
-      "id": "c66d6eac-f484-4059-aa36-21e5e61c732b",
-      "firstName": "updated",
-      "lastName": "Gujejiani",
-      "legalAddress": {
-        "country": "Georgia",
-        "city": "Tbilisi",
-        "address": "Georgia"
-      },
-      "factualAddress": {
-        "country": "Georgia",
-        "city": "Tbilisi",
-        "address": "Georgia"
-      },
-      "photo": "",
-      "gender": "male",
-      "personalId": "22001035120",
-      "phoneNumber": "598829272"
-    },
-    {
       "id": "2a53f0e1-f014-4583-b074-0ccbf7b5d757",
       "firstName": "updated",
       "lastName": "Gujejiani",

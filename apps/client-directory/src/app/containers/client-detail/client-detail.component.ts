@@ -19,6 +19,5 @@ export class ClientDetailComponent{
 
   onDeleteUser(){
     this.userService.deleteUser(this.user.id)
-    this.userService.navigateToCliensPage()
   }
 }

@@ -1,6 +1,6 @@
-import { UserModel } from '@angular-monorepo/shared-ui';
+import { ModalData, UserModel } from '@angular-monorepo/shared-ui';
 import { createAction } from '@ngrx/store';
-import { ModalData } from '../../models/modal-data.model';
+
 
 
 export const CREATE_USER_ACTION = createAction('create user action',
