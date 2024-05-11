@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule , } from '@angular/common';
-import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'lib-status-bar',

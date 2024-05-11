@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StatusBarComponent } from '../status-bar/status-bar.component';
-import { ClientFormSectionNames, UserModel } from '../models';
+import { ClientFormSectionNames, UserModel } from '../../models';
 import {  FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { slideFadeAnimation } from '../animation/animations';
+import { slideFadeAnimation } from '../../animation/animations';
 
 
 

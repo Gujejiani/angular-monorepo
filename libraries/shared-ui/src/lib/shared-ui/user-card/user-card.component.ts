@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserModel } from '../models';
+import { UserModel } from '../../models';
 
 @Component({
   selector: 'lib-user-card',
