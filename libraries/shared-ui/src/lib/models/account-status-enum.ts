@@ -1,5 +1,5 @@
 
-export enum statusEnum {
+export enum AccountStatusEnum {
     ACTIVE = 'Active',
     INACTIVE = 'Inactive'
 }

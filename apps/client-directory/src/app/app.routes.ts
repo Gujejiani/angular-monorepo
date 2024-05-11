@@ -25,5 +25,6 @@ export const appRoutes: Route[] = [
         path: 'detail/:id',
         loadComponent: () => import('./pages/detail/detail-page.component').then(c => c.DetailPageComponent),
         resolve: {user: userDetailResolver},
+        runGuardsAndResolvers: 'paramsOrQueryParamsChange',
     }
 ];

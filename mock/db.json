@@ -25,6 +25,13 @@
           "status": "Active",
           "clientId": "2a53f0e1-f014-4583-b074-0ccbf7b5d757",
           "accountId": "7547f905-658e-4c6e-b347-a3eb5286cf5d"
+        },
+        {
+          "currency": "GEL",
+          "accountType": "Current",
+          "status": "Active",
+          "clientId": "2a53f0e1-f014-4583-b074-0ccbf7b5d757",
+          "accountId": "eed5e46a-4ab9-40aa-90d9-d4be20aef8f0"
         }
       ]
     },

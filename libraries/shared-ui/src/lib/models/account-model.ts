@@ -1,4 +1,4 @@
-import { statusEnum } from "./account-status-enum";
+import { AccountStatusEnum } from "./account-status-enum";
 import { AccountTypeEnum } from "./acountType-enum";
 import { CurrencyEnum } from "./currency-enum";
 
@@ -8,5 +8,5 @@ export interface AccountModel {
     clientId: number; 
     accountType: AccountTypeEnum 
     currency: CurrencyEnum; 
-    status: statusEnum
+    status: AccountStatusEnum
   }

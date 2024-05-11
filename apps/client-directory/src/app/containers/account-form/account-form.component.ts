@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { slideFadeAnimation } from 'libraries/shared-ui/src/lib/animation/animations';
-import { statusEnum, AccountTypeEnum, CurrencyEnum, UserModel } from '@angular-monorepo/shared-ui';
+import { AccountStatusEnum, AccountTypeEnum, CurrencyEnum, UserModel } from '@angular-monorepo/shared-ui';
 import { UserService } from '../../services/user.service';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -25,7 +25,7 @@ export class AccountFormComponent implements OnInit {
   
   CURRENCY = CurrencyEnum
   ACCOUNT_TYPE = AccountTypeEnum
-  ACCOUNT_STATUS = statusEnum;
+  ACCOUNT_STATUS = AccountStatusEnum;
   formGroup :any
 
   @Input() users: UserModel[] | null =[]
@@ -57,7 +57,7 @@ ngOnInit(){
         CurrencyEnum.GEL, Validators.required, ],
       accountType: [
         AccountTypeEnum.CURRENT, Validators.required, ],
-      status: [statusEnum.ACTIVE, Validators.required],
+      status: [AccountStatusEnum.ACTIVE, Validators.required],
       clientId: [this.clientId, Validators.required],
       accountId: [accountId, Validators.required] 
 
