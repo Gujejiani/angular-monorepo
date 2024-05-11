@@ -22,12 +22,8 @@ export class ClientsContainerComponent {
     this.UserService.deleteUser(id)
   }
   editUser(id: number){
-    this.router.navigate([`/add-client/0`,], {
-      queryParams: {
-        editingId: id
-      }
-    })
-  }
+    this.UserService.editUser(id)
+  } 
   openDetailPage(id: number){
     this.router.navigate([`/detail/${id}`])
   }

@@ -27,14 +27,8 @@
       gap: 16px;
     }
     @include part('btn'){
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      background-color: var(--active-color);
-      color: var(--white-color);
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-
+      @include buttonStyles;
+      opacity: 1;
       @include modifier('secondary'){
         background-color: var(--secondary-color);
       }

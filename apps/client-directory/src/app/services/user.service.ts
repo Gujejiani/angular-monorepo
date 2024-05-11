@@ -6,9 +6,10 @@ import * as Actions from '../store/users/users.actions';
 import * as Selectors from '../store/users/users.selectors';
 import { APIService } from '../api/api.service';
 import { GET_USERS } from '../api/endpoints';
+import { Router } from '@angular/router';
 @Injectable({providedIn: 'root'})
 export class UserService {
-    constructor(private formBuilder: FormBuilder, private store: Store, private apiService: APIService) {}
+    constructor(private formBuilder: FormBuilder, private store: Store, private apiService: APIService, private router: Router) {}
 
   fetchUsers(){
     this.store.dispatch(Actions.GET_USERS_ACTION())
@@ -41,9 +42,21 @@ export class UserService {
   deleteUser(id: number){
     this.store.dispatch(Actions.DELETE_USER(id))
   }
+
+
+  editUser(id:number ){
+    this.router.navigate([`/add-client/0`,], {
+      queryParams: {
+        editingId: id
+      }
+    })
+  }
+  navigateToCliensPage(){
+    this.router.navigate(['/clients'])
+  }
     
     
-    getUserForm (){
+  getUserForm (){
         return this.formBuilder.group({
             firstName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50, ), patternValidator(georgianPattern, englishPattern)] ],
             lastName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50), patternValidator(georgianPattern, englishPattern)]],

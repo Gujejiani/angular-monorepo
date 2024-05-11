@@ -4,7 +4,7 @@
       <div class="user-detail__user-section">
         <h2>Personal Information</h2>
         <div class="user-detail__user-data user-detail__user-data--personal">
-        <img   [src]="user.photo" alt="User Photo"> 
+        <img   [src]="user.photo? user.photo:  'assets/default.jpeg'" alt="User Photo"> 
         <div class="user-detail__personal" >
 
      
@@ -14,6 +14,11 @@
           <p><strong>Gender:</strong> {{ user.gender }}</p>
           <p><strong>Personal ID:</strong> {{ user.personalId }}</p>
           <p><strong>Phone Number:</strong> {{ user.phoneNumber }}</p>
+
+          <div class="user-detail__buttons" >
+            <button type="button" (click)="onEditUser()"   class="user-detail-btn ">Edit</button>
+            <button (click)="onDeleteUser()"  type="button"   class="user-detail-btn  user-detail-btn--delete">Delete</button>
+          </div>
         </div>
        
         </div>

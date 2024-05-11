@@ -6,6 +6,27 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: var(--light-shadow);
+    @include element('buttons'){
+        display: flex;
+        gap: 10px;
+        margin-top: 20px
+    }
+    @include part('btn'){
+        @include buttonStyles;
+       
+        @include hover-supported(){
+            opacity: 1;
+        }
+        
+        @include modifier('delete'){
+            background-color: var(--error-color);
+            opacity: 0.5;
+            @include hover-supported(){
+                opacity: 1;
+            }
+        }
+      }
+  
     @include element('info'){
         margin-top: 20px;
     }
@@ -22,14 +43,15 @@
           }
     }
     @include element('user-data'){
-        margin-left: 20px;
+        // margin-left: 20px;
         @include modifier('personal'){
             display: flex;
             align-items: center;
             justify-content: space-between;
             align-items: flex-start;
-            max-width: 500px;
+            max-width: 600px;
             flex-wrap: wrap;
+            gap: 20px;
             img{
                 max-width: 200px;
                 border-radius: 4px;
@@ -38,7 +60,7 @@
         }
     }
     @include element('personal'){
-        margin-left: 40px;
+        // margin-left: 40px;
     }
 
     @include element('account-item'){

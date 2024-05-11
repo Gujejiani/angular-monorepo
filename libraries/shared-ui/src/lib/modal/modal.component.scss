@@ -36,12 +36,7 @@
         }
     }
     @include element('button'){
-        background-color: var(--primary-bg);
-        color: var(--primary-color);
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
+        @include buttonStyles;
         opacity: 0.9;
         cursor: pointer;
         transition: background-color 0.3s ease;
