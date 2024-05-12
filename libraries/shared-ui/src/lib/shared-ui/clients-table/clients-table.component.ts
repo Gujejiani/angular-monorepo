@@ -1,5 +1,5 @@
 import { MatTableModule } from '@angular/material/table';
-import { Component, EventEmitter, Input, Output, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { PaginationComponent } from '../pagination/pagination.component';
@@ -21,6 +21,7 @@ export interface PeriodicElement {
   imports: [CommonModule, MatTableModule, MatIcon, PaginationComponent, InfoComponent],
   templateUrl: './clients-table.component.html',
   styleUrl: './clients-table.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ClientsTableComponent {
   displayedColumns: string[] = ['photo','firstName', 'lastName', 'gender', 'personalId', 'phoneNumber', 'actions' ];

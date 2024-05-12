@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { shakeAnimation } from '../../animation/animations';
 
@@ -8,7 +8,8 @@ import { shakeAnimation } from '../../animation/animations';
   imports: [CommonModule],
   templateUrl: './info.component.html',
   styleUrl: './info.component.scss',
-  animations: [shakeAnimation]
+  animations: [shakeAnimation],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InfoComponent {
   @Input() message =''

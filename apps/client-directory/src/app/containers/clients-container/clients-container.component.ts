@@ -1,7 +1,7 @@
 import { UserService } from './../../services/user.service';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {  ClientsTableComponent, FilterPipe, GenderEnum, InfoComponent, PaginationPipe } from '@angular-monorepo/shared-ui';
+import {  ClientsTableComponent, FilterPipe, GenderEnum, InfoComponent, PaginationPipe, UserModel } from '@angular-monorepo/shared-ui';
 import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';

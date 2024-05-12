@@ -1,5 +1,5 @@
 import { AppModalService } from './../../services/app-modal.service';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AccountStatusEnum, UserModel, mockUser } from '@angular-monorepo/shared-ui';
 import { UserService } from '../../services/user.service';
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   imports: [CommonModule],
   templateUrl: './client-detail.component.html',
   styleUrl: './client-detail.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ClientDetailComponent{
     constructor(private userService: UserService,private appModalService: AppModalService, private router: Router){}

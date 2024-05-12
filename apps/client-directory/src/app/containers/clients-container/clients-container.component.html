@@ -18,7 +18,8 @@
 
     @if(users?.length){
       <lib-clients-table 
-      [users]="(users | filterWithGenderAndId : filtersData.selectedGender: filtersData.searchText )| pagination : paginationData.pageIndex : paginationData.pageSize  "
+      [users]="(users | filterWithGenderAndId : filtersData.selectedGender: filtersData.searchText )
+      | pagination : paginationData.pageIndex : paginationData.pageSize:  (filtersData.searchText || filtersData.selectedGender !== GENDER.BOTH?true:false) "
       [length]="(users | filterWithGenderAndId : filtersData.selectedGender: filtersData.searchText ).length"
       [pageSize]="paginationData.pageSize"
       [pageIndex]="paginationData.pageIndex"

@@ -45,7 +45,7 @@
   
 
       <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <th class="table-th--actions" style="padding-left: 80px;" mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let element">
           <div class="table__buttons" >
           
@@ -69,15 +69,18 @@
     </div>
 
   }
-  <div style="  border: 1px solid #ccc;" >
-    <lib-pagination
-        
-       [length]="length"
-       [pageSize]="pageSize"
-       [pageIndex]="pageIndex"
-      (paginationChanged)="paginationChanged($event)"
-    
-    ></lib-pagination>
-  </div>
+  @if (users.length) {
+    <div style="  border: 1px solid #ccc;" >
+      <lib-pagination
+          
+         [length]="length"
+         [pageSize]="pageSize"
+         [pageIndex]="pageIndex"
+        (paginationChanged)="paginationChanged($event)"
+      
+      ></lib-pagination>
+    </div>
+  }
+ 
 
 </div>

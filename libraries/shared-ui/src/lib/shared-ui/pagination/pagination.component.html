@@ -1,6 +1,9 @@
-<mat-paginator  style="max-width: 240px;" [hidePageSize]="true"  [length]="length"
-                [pageSize]="pageSize"
-                [pageIndex]="pageIndex"
-                (page)="onPageChange($event)"
-                aria-label="Select page">
+<div class="paginator" >
+    <mat-paginator   [hidePageSize]="true"  [length]="length"
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex"
+    (page)="onPageChange($event)"
+    aria-label="Select page">
 </mat-paginator>
+</div>
+
