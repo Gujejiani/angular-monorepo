@@ -1,0 +1,40 @@
+@import './../../../../../../tools/tools.scss';
+
+
+.table{
+    margin-top: 20px;
+    overflow-x: scroll;
+
+    @include element('buttons'){
+        display: flex;
+        align-items: center;
+      
+    }
+}
+.btn{
+    @include buttonStyles;
+    width: 80px;
+    height: 35px;
+    margin-left: 8px;
+    opacity: 0.7;
+    @include hover-supported(){
+        opacity: 1;
+    }
+    
+    @include modifier('delete'){
+        background-color: var(--error-color);
+        opacity: 0.7;
+        @include hover-supported(){
+            opacity: 1;
+        }
+    }
+}
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: var(--primary-bg);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+  }

@@ -22,7 +22,7 @@
         {
           "currency": "GEL",
           "accountType": "Current",
-          "status": "Active",
+          "status": "Inactive",
           "clientId": "2a53f0e1-f014-4583-b074-0ccbf7b5d757",
           "accountId": "7547f905-658e-4c6e-b347-a3eb5286cf5d"
         },
@@ -54,25 +54,6 @@
       "personalId": "22001035120",
       "phoneNumber": "598829272",
       "accounts": []
-    },
-    {
-      "id": "b4768185-e210-41cc-b024-66d6a296ea1a",
-      "firstName": "updated",
-      "lastName": "Gujejiani",
-      "legalAddress": {
-        "country": "Georgia",
-        "city": "Tbilisi",
-        "address": "Georgia"
-      },
-      "factualAddress": {
-        "country": "Georgia",
-        "city": "Tbilisi",
-        "address": "Georgia"
-      },
-      "photo": "",
-      "gender": "male",
-      "personalId": "22001035120",
-      "phoneNumber": "598829272"
     },
     {
       "id": "b8116442-62a5-4902-928b-312f1833a6f2",

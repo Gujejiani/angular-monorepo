@@ -1,35 +1,13 @@
 @import '../../../../../../tools/tools.scss';
 
-.clients{
-    max-width: 736px;
-    margin: auto;
-    margin-top: 100px;
-    background-color: var(--primary-bg);
-    color: var(--primary-color);
-    border-radius: 1.5rem;
-    @include element('container'){
-        padding: 20px;
-        display: flex;
-        flex-wrap: wrap;
-        gap:10px;
-    }
-    @include element('title'){
-          padding-top: 20px;
-          margin-bottom: 40px;
-        text-align: center;
-        h3 {
-            font-size: 30px;
-            font-weight: 500;
-            letter-spacing: -0.025em;
-            line-height: 1;
-          }
-        //   span {
-        //     display: block;
-        //     font-size: 1.875rem;
-        //     font-weight: 300;
-        //     line-height: 2.25rem;
-        //     margin-bottom: 0.5rem;
-        //   }
-    }
-}
 
+
+.clients {
+  
+  margin-top: 100px;
+  @include part('title'){
+    color: var(--dark-color);
+    text-align: center;
+    font-size: 30px;
+  }
+}

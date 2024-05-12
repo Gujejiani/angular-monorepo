@@ -1,13 +1,13 @@
 import { UserService } from './../../services/user.service';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserCardComponent } from '@angular-monorepo/shared-ui';
+import {  ClientsTableComponent } from '@angular-monorepo/shared-ui';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clients-container',
   standalone: true,
-  imports: [CommonModule, UserCardComponent],
+  imports: [CommonModule, ClientsTableComponent],
   templateUrl: './clients-container.component.html',
   styleUrl: './clients-container.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

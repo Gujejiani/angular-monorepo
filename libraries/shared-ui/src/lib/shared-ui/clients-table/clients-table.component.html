@@ -1,0 +1,67 @@
+<div style="overflow-x: scroll;" >
+<table mat-table [dataSource]="users" class="table mat-elevation-z8">
+
+ 
+
+    <ng-container matColumnDef="photo">
+        <th mat-header-cell *matHeaderCellDef> Photo </th>
+        <td mat-cell *matCellDef="let element"> 
+            <img style="max-width: 40px; border-radius: 50%;" [src]="element.photo? element.photo: 'assets/default.jpeg'" alt="User Photo" class="user-photo" >
+
+        
+        </td>
+      </ng-container>
+
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef> FirstName </th>
+      
+      <td mat-cell *matCellDef="let element"> 
+        {{element.firstName}}</td>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef> LastName </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastName}}</td>
+      </ng-container>
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef> Gender </th>
+        <td mat-cell *matCellDef="let element"> {{element.gender}}</td>
+      </ng-container>
+      <ng-container matColumnDef="personalId">
+        <th mat-header-cell *matHeaderCellDef> Personal ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.personalId}}</td>
+      </ng-container>
+      <ng-container matColumnDef="phoneNumber">
+        <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+        <td mat-cell *matCellDef="let element">
+          <div class="table__buttons" >
+              <span>   {{element.phoneNumber}}</span>
+            <button class="btn" color="primary" (click)="viewDetails(element)">
+             Details
+            </button>
+            <button class="btn btn--delete" color="primary" (click)="onDeleteUser(element)">
+              Delete
+             </button>
+          </div>
+       
+        
+        </td>
+      </ng-container>
+   
+  
+
+  
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button class="btn" color="primary" (click)="viewDetails(element)">
+            <mat-icon>Details</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+</div>

@@ -5,6 +5,10 @@ import { userDetailResolver } from './resolver/detail.resolver';
 
 export const appRoutes: Route[] = [
     {
+        path: '',
+        loadComponent: () => import('./containers/clients-container/clients-container.component').then(c => c.ClientsContainerComponent),
+    },
+    {
         path: 'add-client/:id',
         canDeactivate: [unsavedChangesGuard],
         canActivate: [formGuard],
@@ -13,10 +17,7 @@ export const appRoutes: Route[] = [
       
     },
     {
-        path: 'clients',
-        loadComponent: () => import('./containers/clients-container/clients-container.component').then(c => c.ClientsContainerComponent),
-    },
-    {
+        
         path: 'create-account/:id',
         loadComponent: () => import('./pages/account-form/account-from-page.component').then(c => c.AccountPageComponent),    
 

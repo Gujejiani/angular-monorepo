@@ -69,7 +69,7 @@ export class UserService {
     })
   }
   navigateToCliensPage(){
-    this.router.navigate(['/clients'])
+    this.router.navigate(['/'])
   }
 
   createAccount(id: number){
