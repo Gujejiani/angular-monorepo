@@ -1,13 +1,13 @@
 import { UserService } from './../../services/user.service';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {  ClientsTableComponent } from '@angular-monorepo/shared-ui';
+import {  ClientsTableComponent, InfoComponent } from '@angular-monorepo/shared-ui';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clients-container',
   standalone: true,
-  imports: [CommonModule, ClientsTableComponent],
+  imports: [CommonModule, ClientsTableComponent, InfoComponent],
   templateUrl: './clients-container.component.html',
   styleUrl: './clients-container.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,5 +26,9 @@ export class ClientsContainerComponent {
   } 
   openDetailPage(id: number){
     this.router.navigate([`/detail/${id}`])
+  }
+
+  openCreatePage(){
+    this.router.navigate(['/add-client/0'])
   }
 }

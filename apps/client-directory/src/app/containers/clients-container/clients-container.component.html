@@ -1,11 +1,22 @@
 
 
 <div class="clients" >
-  <h3 class="clients-title" >Client List</h3>
-  <lib-clients-table 
-  [users]="users$ | async"
-  (editUser)="editUser($event)"
-  (detailClicked)="openDetailPage($event)"
-  (deleteUser)="deleteUser($event)" >
-  </lib-clients-table>
+  <h3  class="clients-title" >Client List</h3>
+
+  @if(users$ | async; as users){
+
+    @if(users?.length){
+      <lib-clients-table 
+      [users]="users"
+      (editUser)="editUser($event)"
+      (detailClicked)="openDetailPage($event)"
+      (deleteUser)="deleteUser($event)" >
+      </lib-clients-table>
+    } @else {
+      <lib-info [message]="'No Clients Found'" [buttonText]="'Add Client'" (actionClick)="openCreatePage()"  ></lib-info>
+
+    }
+  
+  }
+
 </div>
