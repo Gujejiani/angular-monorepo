@@ -7,10 +7,15 @@
 
     @if(users?.length){
       <lib-clients-table 
-      [users]="users"
+      [users]="users | pagination : paginationData.pageIndex : paginationData.pageSize  "
+      [length]="users.length"
+      [pageSize]="paginationData.pageSize"
+      [pageIndex]="paginationData.pageIndex"
       (editUser)="editUser($event)"
       (detailClicked)="openDetailPage($event)"
-      (deleteUser)="deleteUser($event)" >
+      (deleteUser)="deleteUser($event)"
+      (pageChanged)="pageChanged($event)"
+      >
       </lib-clients-table>
     } @else {
       <lib-info [message]="'No Clients Found'" [buttonText]="'Add Client'" (actionClick)="openCreatePage()"  ></lib-info>

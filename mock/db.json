@@ -22,7 +22,7 @@
         {
           "currency": "GEL",
           "accountType": "Current",
-          "status": "Inactive",
+          "status": "Active",
           "clientId": "2a53f0e1-f014-4583-b074-0ccbf7b5d757",
           "accountId": "7547f905-658e-4c6e-b347-a3eb5286cf5d"
         },
@@ -116,6 +116,120 @@
     {
       "id": "bced5d3d-88aa-4d05-942d-eb0affd4234f",
       "firstName": "updated",
+      "lastName": "Gujejiani",
+      "legalAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "factualAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "photo": "",
+      "gender": "male",
+      "personalId": "22001035120",
+      "phoneNumber": "598829272"
+    },
+    {
+      "id": "f8be27c5-1a5b-4105-bf8f-542aae6d4915",
+      "firstName": "eliso",
+      "lastName": "Gujejiani",
+      "legalAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "factualAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "photo": "",
+      "gender": "male",
+      "personalId": "22001035120",
+      "phoneNumber": "598829272"
+    },
+    {
+      "id": "5664b016-e23d-43cc-9f17-039353f25854",
+      "firstName": "withimg",
+      "lastName": "Gujejiani",
+      "legalAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "factualAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "photo": "",
+      "gender": "male",
+      "personalId": "22001035120",
+      "phoneNumber": "598829272"
+    },
+    {
+      "id": "15251178-942f-40d8-bf94-b75487121593",
+      "firstName": "new",
+      "lastName": "Gujejiani",
+      "legalAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "factualAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "photo": "",
+      "gender": "male",
+      "personalId": "22001035120",
+      "phoneNumber": "598829272"
+    },
+    {
+      "id": "8625564d-0fab-41f0-86e2-e6c8e3e4541e",
+      "firstName": "badri",
+      "lastName": "Gujejiani",
+      "legalAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "factualAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "photo": "",
+      "gender": "male",
+      "personalId": "22001035120",
+      "phoneNumber": "598829272"
+    },
+    {
+      "id": "49d1eece-a009-4f71-8c2a-c8765754438f",
+      "firstName": "giuli",
+      "lastName": "elisashvili",
+      "legalAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "factualAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "photo": "",
+      "gender": "male",
+      "personalId": "22001035120",
+      "phoneNumber": "598829272"
+    },
+    {
+      "id": "d3aaa9b8-b09a-48ad-9584-a64f1bfbdc65",
+      "firstName": "esebua",
       "lastName": "Gujejiani",
       "legalAddress": {
         "country": "Georgia",
