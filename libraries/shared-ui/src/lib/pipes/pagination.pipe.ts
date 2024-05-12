@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { UserModel } from '../models';
+import { UserModel } from '../models/user-models';
 
 @Pipe({
   name: 'pagination',

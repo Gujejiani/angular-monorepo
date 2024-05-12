@@ -1,6 +1,5 @@
-import { AccountStatusEnum } from "./account-status-enum";
-import { AccountTypeEnum } from "./acountType-enum";
-import { CurrencyEnum } from "./currency-enum";
+import { AccountStatusEnum, AccountTypeEnum, CurrencyEnum } from "./user-models";
+
 
 export interface AccountModel {
     accountId?: string;

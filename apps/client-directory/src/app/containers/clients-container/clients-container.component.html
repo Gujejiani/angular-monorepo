@@ -1,20 +1,34 @@
 
 
 <div class="clients" >
+ 
   <h3  class="clients-title" >Client List</h3>
-
+  <div class="filter-bar">
+    <!-- Simple Filtering Dropdown -->
+    <select [(ngModel)]="filtersData.selectedGender" (change)="saveFilters()">
+      <option [value]="GENDER.BOTH">All Genders</option>
+      <option [value]="GENDER.MALE">Male</option>
+      <option [value]="GENDER.FEMALE">Female</option>
+    </select>
+    
+    <!-- Search Input -->
+    <input type="text" placeholder="Search by ID" [(ngModel)]="filtersData.searchText" (input)="saveFilters()" >
+  </div>
   @if(users$ | async; as users){
 
     @if(users?.length){
       <lib-clients-table 
-      [users]="users | pagination : paginationData.pageIndex : paginationData.pageSize  "
-      [length]="users.length"
+      [users]="(users | filterWithGenderAndId : filtersData.selectedGender: filtersData.searchText )| pagination : paginationData.pageIndex : paginationData.pageSize  "
+      [length]="(users | filterWithGenderAndId : filtersData.selectedGender: filtersData.searchText ).length"
       [pageSize]="paginationData.pageSize"
       [pageIndex]="paginationData.pageIndex"
+      [notFoundButtonText]="'Reset Filters'"
+      [notFoundText]="getNotFoundText"
       (editUser)="editUser($event)"
       (detailClicked)="openDetailPage($event)"
       (deleteUser)="deleteUser($event)"
       (pageChanged)="pageChanged($event)"
+      (resetFilters)="resetFilters()"
       >
       </lib-clients-table>
     } @else {

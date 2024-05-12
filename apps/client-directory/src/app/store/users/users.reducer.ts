@@ -34,7 +34,6 @@ export const usersReducer = createReducer(
         };
     }),
     on(Actions.SHOW_LOADING_ACTION, (state, { payload }) => {
-        console.log('updating loading')
         return {
             ...state,
             loading: payload

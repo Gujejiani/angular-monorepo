@@ -1,4 +1,5 @@
-import { UserModel } from '../models'
+import { GenderEnum, UserModel } from '../models/user-models'
+
 
 export * from './form-uttis'
 
@@ -20,7 +21,7 @@ export const mockUser: UserModel = {
       address: 'Georgia'
     },
     photo: './',
-    gender: 'male',
+    gender: GenderEnum.MALE,
     personalId: '23232323223',
     phoneNumber: 598829272
   }

@@ -22,7 +22,7 @@
         {
           "currency": "GEL",
           "accountType": "Current",
-          "status": "Active",
+          "status": "Inactive",
           "clientId": "2a53f0e1-f014-4583-b074-0ccbf7b5d757",
           "accountId": "7547f905-658e-4c6e-b347-a3eb5286cf5d"
         },
@@ -71,7 +71,7 @@
       },
       "photo": "",
       "gender": "male",
-      "personalId": "22001035120",
+      "personalId": "32001035120",
       "phoneNumber": "598829272",
       "accounts": []
     },
@@ -243,6 +243,44 @@
       },
       "photo": "",
       "gender": "male",
+      "personalId": "22001035120",
+      "phoneNumber": "598829272"
+    },
+    {
+      "id": "ec93aef6-d6b6-419c-9ec5-5916602da6bb",
+      "firstName": "esebua",
+      "lastName": "Gujejiani",
+      "legalAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "factualAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "photo": "",
+      "gender": "male",
+      "personalId": "22001035120",
+      "phoneNumber": "598829272"
+    },
+    {
+      "id": "0999eaf4-3c63-4453-acfd-14064bde08e8",
+      "firstName": "Eliso",
+      "lastName": "Gujejiani",
+      "legalAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "factualAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Georgia"
+      },
+      "photo": "",
+      "gender": "female",
       "personalId": "22001035120",
       "phoneNumber": "598829272"
     }

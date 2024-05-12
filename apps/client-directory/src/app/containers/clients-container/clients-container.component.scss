@@ -11,3 +11,20 @@
     font-size: 30px;
   }
 }
+
+
+
+.filter-bar {
+  margin-left: 16px;
+  display: flex;
+  align-items: center;
+  
+}
+
+.filter-bar select,
+.filter-bar input {
+  margin-right: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}

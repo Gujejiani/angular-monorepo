@@ -2,9 +2,11 @@ import { MatTableModule } from '@angular/material/table';
 import { Component, EventEmitter, Input, Output, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
-import { UserModel } from '../../models';
 import { PaginationComponent } from '../pagination/pagination.component';
 import { PageEvent } from '@angular/material/paginator';
+import { UserModel } from '../../models/user-models';
+import { InfoComponent } from '../info/info.component';
+import { mockUser } from '../../utils';
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -16,12 +18,12 @@ export interface PeriodicElement {
 @Component({
   selector: 'lib-clients-table',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatIcon, PaginationComponent],
+  imports: [CommonModule, MatTableModule, MatIcon, PaginationComponent, InfoComponent],
   templateUrl: './clients-table.component.html',
   styleUrl: './clients-table.component.scss',
 })
 export class ClientsTableComponent {
-  displayedColumns: string[] = ['photo','firstName', 'lastName', 'gender', 'personalId', 'phoneNumber', ];
+  displayedColumns: string[] = ['photo','firstName', 'lastName', 'gender', 'personalId', 'phoneNumber', 'actions' ];
   @Input({
     required: true,
   }) pageIndex = 0;
@@ -33,7 +35,9 @@ export class ClientsTableComponent {
   }) length = 100;
   @Input({
     required: true
-  }) users :any = [];
+  }) users :UserModel[] = [mockUser];
+  @Input() notFoundText = "Can't find user";
+  @Input() notFoundButtonText ='Reset Filters'
   @Output() deleteUser: EventEmitter<number> = new EventEmitter<number>();
 
   @Output() editUser: EventEmitter<number> = new EventEmitter<number>();
@@ -41,11 +45,16 @@ export class ClientsTableComponent {
   @Output() detailClicked = new EventEmitter<number>();
 
   @Output() pageChanged = new EventEmitter<PageEvent>();
+
+  @Output() resetFilters = new EventEmitter<PageEvent>();
+
   viewDetails(user: UserModel){
     
     this.detailClicked.emit(user.id)
   }
-
+  onResetFilters(){
+    this.resetFilters.emit()
+  }
 
   onEditUser(user: UserModel){
     this.editUser.emit(user.id)

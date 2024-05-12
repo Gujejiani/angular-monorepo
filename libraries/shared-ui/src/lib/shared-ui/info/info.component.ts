@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { shakeAnimation } from '../../animation/animations';
 
 @Component({
   selector: 'lib-info',
@@ -7,6 +8,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './info.component.html',
   styleUrl: './info.component.scss',
+  animations: [shakeAnimation]
 })
 export class InfoComponent {
   @Input() message =''
