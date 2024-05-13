@@ -39,10 +39,18 @@ export class UIClientFormContainerComponent implements OnInit {
 
   @Output() sectionChange = new EventEmitter<ClientFormSectionNames>()
   @Output() fromSubmitted = new EventEmitter<{user: UserModel, update?: boolean}>()
-  @Output() deleteUser = new EventEmitter<number>();
-  
+  @Output() deleteUser = new EventEmitter<string>();
+  @Output() photoUploaded = new EventEmitter<File>();
+  isRightButtonClick=true;
 
-  isRightButtonClick=true
+
+  onFileChange(event: any) {
+    if(event.target?.files?.length > 0){
+      this.photoUploaded.emit(event.target.files[0])
+    }
+     
+  }
+
   onNextClick($event: MouseEvent){
 
     $event.preventDefault()

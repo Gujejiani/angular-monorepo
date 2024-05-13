@@ -8,7 +8,7 @@
     <ng-container matColumnDef="photo">
         <th mat-header-cell *matHeaderCellDef> Photo </th>
         <td mat-cell *matCellDef="let element"> 
-            <img style="max-width: 40px; border-radius: 50%;" [src]="element.photo? element.photo: 'assets/default.jpeg'" alt="User Photo" class="user-photo" >
+            <img style="max-width: 40px; border-radius: 50%;" libImgFallback [fallbackPath]="'assets/default.jpeg'" [src]="imagePath(element.id)" alt="User Photo" class="user-photo" >
 
         
         </td>

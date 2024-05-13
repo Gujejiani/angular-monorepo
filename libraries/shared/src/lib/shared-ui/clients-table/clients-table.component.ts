@@ -8,6 +8,7 @@ import { UserModel } from '../../models/user-models';
 import { InfoComponent } from '../info/info.component';
 import { mockUser } from '../../utils';
 import {  slideFadeAnimationLeave } from '../../animation/animations';
+import { ImgFallbackDirective } from '../../directives';
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -19,7 +20,7 @@ export interface PeriodicElement {
 @Component({
   selector: 'lib-clients-table',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatIcon, PaginationComponent, InfoComponent],
+  imports: [CommonModule, MatTableModule, MatIcon, PaginationComponent, InfoComponent, ImgFallbackDirective],
   templateUrl: './clients-table.component.html',
   styleUrl: './clients-table.component.scss',
   animations: [slideFadeAnimationLeave],
@@ -30,6 +31,15 @@ export class ClientsTableComponent implements OnDestroy {
   displayedColumns: string[] = ['photo','firstName', 'lastName', 'gender', 'personalId', 'phoneNumber', 'accounts', 'actions' ];
   deleteAnimation = false;
   timeOut =0;
+  
+  @Input({
+    required: true
+  }) imgEndpoint=''
+
+
+   imagePath(id: string){
+    return this.imgEndpoint + id + '.jpeg'
+  }
   @Input({
     required: true,
   }) pageIndex = 0;
@@ -47,17 +57,17 @@ export class ClientsTableComponent implements OnDestroy {
 
   @Input() notFoundText = "Can't find user";
   @Input() notFoundButtonText ='Reset Filters'
-  @Output() deleteUser: EventEmitter<number> = new EventEmitter<number>();
+  @Output() deleteUser: EventEmitter<string> = new EventEmitter<string>();
 
-  @Output() editUser: EventEmitter<number> = new EventEmitter<number>();
+  @Output() editUser: EventEmitter<string> = new EventEmitter<string>();
 
-  @Output() detailClicked = new EventEmitter<number>();
+  @Output() detailClicked = new EventEmitter<string>();
 
   @Output() pageChanged = new EventEmitter<PageEvent>();
 
   @Output() resetFilters = new EventEmitter<PageEvent>();
 
-  @Output() createAccount = new EventEmitter<number>();
+  @Output() createAccount = new EventEmitter<string>();
   viewDetails(user: UserModel){
     
     this.detailClicked.emit(user.id)

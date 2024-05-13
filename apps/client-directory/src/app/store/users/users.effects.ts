@@ -1,7 +1,7 @@
 
 
 
-// define effect
+
 
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { of } from 'rxjs';
@@ -19,9 +19,7 @@ export class UsersEffects {
     createNewUser$ = createEffect(() => this.actions$.pipe(
         ofType(userActions.CREATE_USER_ACTION),
         switchMap( (action) => {
-            const userWithId = { ...action.payload, id: uuidv4() }
-        
-            return  this.apiService.apiCall(CREATE_USER, userWithId).pipe(
+            return  this.apiService.apiCall(CREATE_USER, action.payload).pipe(
             map((user: any) => userActions.SUCCESS_MESSAGE_ACTION({
                 title: 'Success',
                 message: 'User created successfully!',
@@ -46,7 +44,7 @@ export class UsersEffects {
             map( (users) => {
                 const usersData = users as unknown as UserModel[]
                 console.log(users)
-                return userActions.GET_USERS_SUCCESS(usersData)
+                return userActions.GET_USERS_SUCCESS(usersData.reverse())
             },
             
         ),

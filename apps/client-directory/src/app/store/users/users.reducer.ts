@@ -2,7 +2,7 @@ import { ModalData, UserModel } from '@angular-monorepo/shared';
 
 
 
-// define reducer
+
 
 import { createReducer, on } from '@ngrx/store';
 

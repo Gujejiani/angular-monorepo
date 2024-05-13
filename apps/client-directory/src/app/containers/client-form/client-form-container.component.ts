@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { ClientFormSectionNames } from 'libraries/shared/src/lib/models';
 import {  FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-
+import { v4 as uuidv4 } from 'uuid';
 @Component({
   selector: 'app-client-form',
   standalone: true,
@@ -48,17 +48,35 @@ export class ClientFormContainerComponent  implements OnInit , OnDestroy{
       }
       this.saveFormToLocalStorage()
   }
+
+  photoUploaded(event: File){
+    this.userForm.patchValue({photo: event})
+  }
   fromSubmitted({user, update}: {user: UserModel, update?: boolean}){
+    user.id = uuidv4() // generate random id
 
     if(!update){
       this.userService.createUser(user)
       this.userForm.reset()
       this.router.navigate(['/add-client', 0],)  
+
+      
+      
     }else {
    
       user.id = this.editingId as any
       this.userService.updateUser(user)  
     }
+    if(user.photo){
+      this.saveUserImage(user)
+    }
+  }
+
+  saveUserImage(user: UserModel){
+    const form = new FormData()
+    form.append('id', JSON.stringify(user.id))
+    form.append('photo', user.photo as any)
+    this.userService.saveImage(form)
   }
   /**
    * Save form values to local storage
@@ -77,7 +95,7 @@ export class ClientFormContainerComponent  implements OnInit , OnDestroy{
       this.userForm.patchValue(parsedFormValues);
     }
   }
-  deleteUser(id: number) {
+  deleteUser(id: string) {
     this.userService.deleteUser(id)
     this.userForm.reset()
     this.router.navigate(['/add-client', 0],)  

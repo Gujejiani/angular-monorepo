@@ -7,7 +7,7 @@ export const maxImumNumberOfUserFormPages = 3
 
 
 export const mockUser: UserModel = {
-    id: 542323,
+    id: '542323',
     firstName: "Mock User",
     lastName: "from mock folder",
     legalAddress: {

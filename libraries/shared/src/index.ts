@@ -9,3 +9,5 @@ export * from './lib/shared-ui/info/info.component';
 export * from './lib/pipes/index';
 
 export * from './lib/validators/form.validators'
+
+export * from './lib/directives/index';

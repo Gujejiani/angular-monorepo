@@ -1,0 +1,31 @@
+{
+  "name": "photo-api-my-express-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/photo-api/my-express-api/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "photo-api-my-express-api:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "photo-api-my-express-api:build:development"
+        },
+        "production": {
+          "buildTarget": "photo-api-my-express-api:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/photo-api/my-express-api/jest.config.ts"
+      }
+    }
+  }
+}

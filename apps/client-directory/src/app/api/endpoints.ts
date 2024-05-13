@@ -14,11 +14,20 @@ export const CREATE_USER: EndPointModel = {
   method: 'POST',
   url: environment.dbEndPoint,
 };
+export const SAVE_PHOTO: EndPointModel = {
+  api: 'save-photo',
+  method: 'POST',
+  url: environment.photoEndPoint,
 
-// export const PHOTO_URL: EndPointModel = {
-//   api: environment.photoEndPoint + 'img/users/',
-//   method: 'GET',
-// };
+}
+export const PHOTO_URL: EndPointModel = {
+  api: 'assets/',
+  method: 'GET',
+  url: environment.photoEndPoint,
+
+}
+
+
 export const UPDATE_USER: EndPointModel = {
   api: 'users',
   method: 'PATCH',

@@ -1,7 +1,7 @@
 import { AccountModel } from "./account-model";
 
  export interface UserModel {
-    id?: number; 
+    id?: string; 
     firstName: string; 
     lastName: string; 
     gender: GenderEnum; 

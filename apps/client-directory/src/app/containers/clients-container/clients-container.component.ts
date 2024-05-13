@@ -1,10 +1,11 @@
 import { UserService } from './../../services/user.service';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {  ClientsTableComponent, FilterPipe, GenderEnum, InfoComponent, PaginationPipe, UserModel } from '@angular-monorepo/shared';
+import {  ClientsTableComponent, FilterPipe, GenderEnum, InfoComponent, PaginationPipe } from '@angular-monorepo/shared';
 import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
+import { PHOTO_URL } from '../../api/endpoints';
 
 @Component({
   selector: 'app-clients-container',
@@ -32,6 +33,11 @@ export class ClientsContainerComponent implements OnInit {
     pageSize: 8,
     length: 100
   }
+  PHOTO_URL = PHOTO_URL
+
+  get getImageUrl(){
+    return `${PHOTO_URL.url}${PHOTO_URL.api}`
+  }
   get getNotFoundText(){
     return  `Can't find user with ID ${this.filtersData.searchText}`
   }
@@ -46,17 +52,17 @@ export class ClientsContainerComponent implements OnInit {
     this.loadPaginationData()
     this.loadFiltersData()
   }
-  deleteUser(id: number){
+  deleteUser(id: string){
     this.UserService.deleteUser(id)
   }
   pageChanged(data: PageEvent){
     localStorage.setItem('paginationData', JSON.stringify(data));
      this.paginationData = data
   }
-  editUser(id: number){
+  editUser(id: string){
     this.UserService.editUser(id)
   } 
-  openDetailPage(id: number){
+  openDetailPage(id: string){
     this.router.navigate([`/detail/${id}`])
   }
 
@@ -81,7 +87,7 @@ export class ClientsContainerComponent implements OnInit {
    }
   }
 
-  createAccount(id: number){
+  createAccount(id: string){
     this.UserService.createAccount(id)
   }
 }

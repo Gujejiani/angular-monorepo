@@ -117,7 +117,7 @@
             </ng-container>
                 <div class="form-group">
                     <label for="photo">Upload Photo</label>
-                    <input type="file" class="form-control-file" id="photo" formControlName="photo" >
+                    <input (change)="onFileChange($event)" type="file" class="form-control-file" id="photo"  >
                 </div>
             </div>
            

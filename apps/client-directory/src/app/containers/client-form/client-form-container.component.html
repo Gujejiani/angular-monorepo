@@ -9,6 +9,7 @@
     [userForm]="userForm"
     [editUser]="editingUser$ | async"
     (sectionChange)="formPageIndexChanged($event)"
+    (photoUploaded)="photoUploaded($event)"
     (deleteUser)="deleteUser($event)"
     (fromSubmitted)="fromSubmitted($event)"
     

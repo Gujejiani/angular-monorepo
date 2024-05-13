@@ -4,7 +4,7 @@
       <div class="user-detail__user-section">
         <h2>Personal Information</h2>
         <div class="user-detail__user-data user-detail__user-data--personal">
-        <img   [src]="user?.photo? user?.photo:  'assets/default.jpeg'" alt="User Photo"> 
+        <img   [src]="getImageUrl" libImgFallback [fallbackPath]="'assets/default.jpeg'"  alt="User Photo"> 
         <div class="user-detail__personal" >
 
      
