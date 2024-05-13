@@ -1,6 +1,43 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
+import { Observable, map, of, take } from "rxjs";
+import { UserModel } from "../models";
 export const georgianPattern = /^[\u10A0-\u10FF\s\d]*$/; 
 export const englishPattern = /^[a-zA-Z\s\d]*$/; 
+
+
+export function asyncValidator(apiCall: Observable<any>) {
+    // self invoking function to return the validator function
+    return function customValidator(): ValidatorFn {
+        console.log('called custom validator')
+          return (control: AbstractControl):Observable<{ [key: string]: string } | null>  => {
+            if (!control.valueChanges || control.pristine) {
+              return of(null);
+            }else {
+              console.log(control)
+            }
+              return apiCall.pipe(take(1),map((users: any)=>{
+                    console.log(users, 'inside validator')
+                    const alreadyUsed = users?.some((user: UserModel)=> user.personalId === control.value)
+
+                    if(alreadyUsed){
+                      console.log('already used')
+                      return {errorMessage: 'Personal ID already used'}
+                    }
+                      return null
+                    
+                  }))
+        }
+     
+    }();
+}
+          
+  
+
+
+
+
+
+
 // Custom validator function to check if the input contains only Latin letters
 export function patternValidator(georgianPattern: RegExp, englishPattern: RegExp): ValidatorFn {
     return (control: AbstractControl): { [key: string]: string } | null => {

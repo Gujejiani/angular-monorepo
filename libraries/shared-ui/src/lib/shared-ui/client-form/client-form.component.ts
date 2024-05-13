@@ -25,7 +25,7 @@ export class UIClientFormContainerComponent implements OnInit {
   ngOnInit(): void {
       if(this.editUser){
         this.userForm.patchValue(this.editUser)
-      }
+      }   
   }
   SECTIONS = ClientFormSectionNames
   @Input({
@@ -44,7 +44,7 @@ export class UIClientFormContainerComponent implements OnInit {
 
   isRightButtonClick=true
   onNextClick($event: MouseEvent){
-    
+
     $event.preventDefault()
 
     this.sectionChange.emit(this.selectedSection + 1)
@@ -56,6 +56,10 @@ export class UIClientFormContainerComponent implements OnInit {
     this.sectionChange.emit(this.selectedSection - 1)
     this.isRightButtonClick =false
     this.cdr.markForCheck()
+  }
+  getFormIsValid(){
+
+    return this.userForm.status ==='VALID'  || this.userForm.status ==='PENDING'
   }
   onDeleteUser(){
     if(this.editUser?.id){

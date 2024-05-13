@@ -1,6 +1,6 @@
 import { AppModalService } from './app-modal.service';
 import { Store } from '@ngrx/store';
-import { UserModel, englishPattern, genderValidator, georgianPattern, patternValidator, startsWithValidator } from "@angular-monorepo/shared-ui";
+import { UserModel, asyncValidator, englishPattern, genderValidator, georgianPattern, patternValidator, startsWithValidator } from "@angular-monorepo/shared-ui";
 import { Injectable } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import * as Actions from '../store/users/users.actions';
@@ -95,7 +95,7 @@ export class UserService {
             }),
             photo: [''],
             gender: ['male', [Validators.required, genderValidator()]],
-            personalId: ['',[Validators.required, Validators.minLength(11), Validators.maxLength(11), Validators.pattern('^[0-9]*$')]],
+            personalId: ['',[Validators.required, Validators.minLength(11), Validators.maxLength(11), Validators.pattern('^[0-9]*$'),],  [ asyncValidator(this.apiService.apiCall(GET_USERS))]],
             phoneNumber: ['',[Validators.required,  Validators.minLength(9), Validators.maxLength(9), Validators.pattern('^[0-9]*$'), startsWithValidator('5')]],  
 
           });

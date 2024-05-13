@@ -32,10 +32,10 @@
                 </div>
                 <div class="form-group">
                     <label for="number">Id Number</label>
-                    <input            [ngClass]="{'form-control--invalid': userForm.get('personalId')?.invalid && userForm.get('personalId')?.touched}"
+                    <input         [ngClass]="{'form-control--invalid': userForm.get('personalId')?.invalid && userForm.get('personalId')?.touched}"
                      type="text" class="form-control" id="number" formControlName="personalId" placeholder="ID number">
                     <span  *ngIf="userForm.get('personalId')?.invalid && userForm.get('personalId')?.touched " class="error-message" >
-                        {{  'Personal ID must container 11 numbers' }} 
+                        {{ userForm.get('personalId')?.getError('errorMessage') ??   'Personal ID must container 11 numbers' }} 
                     </span>
                 </div>
                
@@ -143,7 +143,7 @@
         <button type="submit" [disabled]="!userForm.dirty" [ngClass]="{'form-btn--disabled': !userForm.dirty}" class="form-btn ">UPDATE</button>
 
     }@else {
-        <button type="submit" [disabled]="!userForm.valid" [ngClass]="{'form-btn--disabled': !userForm.valid}" class="form-btn ">Submit</button>
+        <button type="submit" [disabled]="!getFormIsValid()" [ngClass]="{'form-btn--disabled': !getFormIsValid()}" class="form-btn ">Submit</button>
 
     }
    </div>

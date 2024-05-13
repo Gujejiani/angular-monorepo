@@ -1,7 +1,7 @@
 import { GenderEnum, UserModel } from '../models/user-models'
 
 
-export * from './form-uttis'
+
 
 export const maxImumNumberOfUserFormPages = 3
 
