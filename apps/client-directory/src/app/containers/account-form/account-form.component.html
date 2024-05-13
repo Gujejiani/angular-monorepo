@@ -4,7 +4,7 @@
               
                 <div class="form-group">
                     <label for="clientId">User ID</label>
-                    <select  id="clientId" class="form-control" formControlName="clientId"  >
+                    <select  id="clientId" class="form-control" [ngClass]="{'form-control--invalid':formGroup.get('clientId')?.invalid }" formControlName="clientId"  >
                         @for(user of users; track user?.id){
 
 
@@ -40,6 +40,6 @@
                 </div>
                
             </div>
-            <button [disabled]="!formGroup.valid"  type="submit"   class="form-btn ">Create Account</button>
+            <button [disabled]="!formGroup.valid"  [ngClass]="{'form-btn--disabled': !formGroup.valid}" type="submit"   class="form-btn ">Create Account</button>
 
     </form>

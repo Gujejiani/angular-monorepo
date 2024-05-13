@@ -23,6 +23,12 @@ export const appRoutes: Route[] = [
 
     },
     {
+        
+        path: 'create-account',
+        loadComponent: () => import('./pages/account-form/account-from-page.component').then(c => c.AccountPageComponent),    
+
+    },
+    {
         path: 'detail/:id',
         loadComponent: () => import('./pages/detail/detail-page.component').then(c => c.DetailPageComponent),
         resolve: {user: userDetailResolver},

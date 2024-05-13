@@ -58,7 +58,7 @@ ngOnInit(){
       accountType: [
         AccountTypeEnum.CURRENT, Validators.required, ],
       status: [AccountStatusEnum.ACTIVE, Validators.required],
-      clientId: [this.clientId, Validators.required],
+      clientId: [this.clientId ? this.clientId: null, Validators.required],
       accountId: [accountId, Validators.required] 
 
     })

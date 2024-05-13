@@ -1,10 +1,11 @@
 @import './../../../../../../tools/tools.scss';
 .container{
-    overflow-x: auto;
+    overflow-x: scroll;
     
 }
 
 .table{
+    overflow: hidden;
     @include part('th'){
         @include modifier('actions'){
             padding-left: 80px;

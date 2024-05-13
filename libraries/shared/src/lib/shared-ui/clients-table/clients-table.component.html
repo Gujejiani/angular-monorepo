@@ -1,7 +1,7 @@
 <div class="container"  >
  
 
-  <table mat-table [dataSource]="users" class="table mat-elevation-z8">
+  <table mat-table [dataSource]="users"  [trackBy]="myTrackById" class="table mat-elevation-z8">
 
  
 
@@ -60,7 +60,7 @@
       </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr [@slideFadeAnimationLeave]="{value: false, params: {transition:   deleteAnimation? '-100%': '0', time: deleteAnimation? '400ms': '0ms'} }"  mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
   @if(!users.length){
     <div class="table__info" >

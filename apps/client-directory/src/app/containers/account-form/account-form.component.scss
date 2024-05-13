@@ -14,9 +14,15 @@
     margin: auto;
     @include buttonStyles;
     opacity: 0.9;
-      @include hover-supported(){
+    @include hover-supported(){
           opacity: 1;
-      }
+    }
+    @include modifier('disabled'){
+      opacity: 0.5;
+      @include hover-supported(){
+        opacity: 0.5;
+  }
+    }
   }
     @include part('group'){
         margin-bottom: 20px;
@@ -58,7 +64,7 @@
     outline-color: white;
     @include modifier('invalid'){
       border-color: var(--error-color);
-    }
+    }  
   }
   
  
