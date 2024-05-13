@@ -27,7 +27,7 @@ export interface PeriodicElement {
 })
 export class ClientsTableComponent implements OnDestroy {
   constructor(private cdr: ChangeDetectorRef){}
-  displayedColumns: string[] = ['photo','firstName', 'lastName', 'gender', 'personalId', 'phoneNumber', 'actions' ];
+  displayedColumns: string[] = ['photo','firstName', 'lastName', 'gender', 'personalId', 'phoneNumber', 'accounts', 'actions' ];
   deleteAnimation = false;
   timeOut =0;
   @Input({
@@ -57,6 +57,7 @@ export class ClientsTableComponent implements OnDestroy {
 
   @Output() resetFilters = new EventEmitter<PageEvent>();
 
+  @Output() createAccount = new EventEmitter<number>();
   viewDetails(user: UserModel){
     
     this.detailClicked.emit(user.id)
@@ -77,6 +78,9 @@ export class ClientsTableComponent implements OnDestroy {
     return user.id
   }
 
+  onCreateAccount(user: UserModel){
+    this.createAccount.emit(user.id)
+  }
 
   onDeleteUser(user: UserModel){
     this.deleteAnimation = true;

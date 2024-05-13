@@ -1,6 +1,6 @@
 import { UserService } from './../../services/user.service';
 import { UIClientFormContainerComponent, maxImumNumberOfUserFormPages, UserModel } from '@angular-monorepo/shared';
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { ClientFormSectionNames } from 'libraries/shared/src/lib/models';
@@ -15,7 +15,7 @@ import { Observable } from 'rxjs';
   styleUrl: './client-form-container.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ClientFormContainerComponent  implements OnInit {
+export class ClientFormContainerComponent  implements OnInit , OnDestroy{
   constructor( private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
@@ -81,5 +81,9 @@ export class ClientFormContainerComponent  implements OnInit {
     this.userService.deleteUser(id)
     this.userForm.reset()
     this.router.navigate(['/add-client', 0],)  
+  }
+
+  ngOnDestroy(): void {
+      this.userService.closeModal()
   }
 }

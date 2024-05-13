@@ -41,6 +41,8 @@
       </div>
       <div class="user-detail__user-section">
         <h2>Accounts</h2>
+        <button (click)="onCreateAccount()" class="user-detail-btn" >Crete New Account</button>
+
         <div *ngFor="let account of user?.accounts" class="user-detail__account-item" [ngClass]="{ 'active': account.status === ACCOUNT_STATUS.ACTIVE, 'inactive': account.status === ACCOUNT_STATUS.INACTIVE }">
          <div class="user-detail__account-info" >
           <p><strong>Account Number:</strong> {{ account.accountId }}</p>
@@ -52,7 +54,6 @@
          <button (click)="changeAccountStatus(account.status, account?.accountId)" class="user-detail-btn user-detail-btn--account user-detail-btn--activate" [ngClass]="{'user-detail-btn--deactivate': account.status === ACCOUNT_STATUS.ACTIVE}"  >{{account.status === ACCOUNT_STATUS.ACTIVE ? 'Deactivate': 'Activate'}}</button>
 
         </div>
-        <button (click)="onCreateAccount()" class="user-detail-btn" >Crete New Account</button>
 
       </div>
     </div>

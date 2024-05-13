@@ -22,10 +22,12 @@ export class UsersEffects {
             const userWithId = { ...action.payload, id: uuidv4() }
         
             return  this.apiService.apiCall(CREATE_USER, userWithId).pipe(
-            map(() => userActions.SUCCESS_MESSAGE_ACTION({
+            map((user: any) => userActions.SUCCESS_MESSAGE_ACTION({
                 title: 'Success',
                 message: 'User created successfully!',
-                success: true
+                success: true,
+                navigationText: String(user?.id) ??'',
+                navigationUrl: `/detail/${user?.id  }`
             })),
             catchError(() => of(userActions.ERROR_ACTION({
                 title: 'Error Ocurred',
@@ -93,7 +95,9 @@ export class UsersEffects {
                 return userActions.SUCCESS_MESSAGE_ACTION({
                     title: 'Success',
                     message: action.payload.message?? 'User updated successfully!',
-                    success: true
+                    success: true,
+                    navigationText: String(action.payload.user.id) ??'',
+                    navigationUrl: `/detail/${action.payload.user.id}`
                 })
             },
             catchError(() => of(userActions.ERROR_ACTION({

@@ -57,5 +57,18 @@
         @include modifier('danger'){
             background-color: var(--error-color);
         }
+        @include modifier('navigation') {
+            display: flex;
+            text-decoration: underline;
+            color: var(--primary-bg); 
+            margin-bottom: 20px;
+            cursor: pointer;
+            justify-content: center;
+            padding-bottom: 10px;
+            opacity:0.7;
+            @include hover-supported(){
+                opacity: 1;
+            }
+        }
     }
 }

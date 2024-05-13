@@ -1,10 +1,11 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { slideFadeAnimation } from 'libraries/shared/src/lib/animation/animations';
 import { AccountStatusEnum, AccountTypeEnum, CurrencyEnum, UserModel } from '@angular-monorepo/shared';
 import { UserService } from '../../services/user.service';
 import { v4 as uuidv4 } from 'uuid';
+
 
 @Component({
   selector: 'app-account-form',
@@ -17,7 +18,7 @@ import { v4 as uuidv4 } from 'uuid';
     slideFadeAnimation
   ]
 })
-export class AccountFormComponent implements OnInit {
+export class AccountFormComponent implements OnInit, OnDestroy{
   constructor(private formBuilder: FormBuilder, private userService: UserService){
   
    
@@ -62,5 +63,9 @@ ngOnInit(){
       accountId: [accountId, Validators.required] 
 
     })
+  }
+
+  ngOnDestroy(){
+    this.userService.closeModal()
   }
 }

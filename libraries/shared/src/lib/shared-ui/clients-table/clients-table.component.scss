@@ -20,6 +20,16 @@
         align-items: center;
       
     }
+    @include part('accounts'){
+        display: flex;
+         align-items: center; 
+         width: 200px;
+        @include part('info'){
+            width: 40px;
+            display: flex;
+            justify-content: center;
+        }
+    }
 }
 .btn{
     @include buttonStyles;
@@ -29,6 +39,14 @@
     opacity: 0.7;
     @include hover-supported(){
         opacity: 1;
+    }
+    @include modifier('account'){
+        font-size: 20px;
+        max-width: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
     
     @include modifier('delete'){

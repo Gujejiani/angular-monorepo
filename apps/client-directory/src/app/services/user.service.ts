@@ -99,5 +99,11 @@ export class UserService {
             phoneNumber: ['',[Validators.required,  Validators.minLength(9), Validators.maxLength(9), Validators.pattern('^[0-9]*$'), startsWithValidator('5')]],  
 
           });
+
+       
+    }
+
+    closeModal(){
+      this.appModalService.closeModal()
     }
 }

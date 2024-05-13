@@ -80,4 +80,8 @@ export class ClientsContainerComponent implements OnInit {
       this.filtersData = data
    }
   }
+
+  createAccount(id: number){
+    this.UserService.createAccount(id)
+  }
 }

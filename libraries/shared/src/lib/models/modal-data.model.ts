@@ -3,5 +3,7 @@ export interface ModalData {
     message: string;
     success: boolean;
     returnOutput?: boolean;
-    confirmButtonText?: string
+    confirmButtonText?: string;
+    navigationText?: string;
+    navigationUrl?: string;
 }
