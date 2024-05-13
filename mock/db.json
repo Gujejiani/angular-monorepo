@@ -179,7 +179,7 @@
     },
     {
       "id": "15251178-942f-40d8-bf94-b75487121593",
-      "firstName": "new",
+      "firstName": "newAccount",
       "lastName": "Gujejiani",
       "legalAddress": {
         "country": "Georgia",
@@ -194,7 +194,16 @@
       "photo": "",
       "gender": "male",
       "personalId": "22001035120",
-      "phoneNumber": "598829272"
+      "phoneNumber": "598829272",
+      "accounts": [
+        {
+          "currency": "GEL",
+          "accountType": "Current",
+          "status": "Active",
+          "clientId": "15251178-942f-40d8-bf94-b75487121593",
+          "accountId": "52963161-cbd0-41eb-88f1-5c066cbc58c1"
+        }
+      ]
     },
     {
       "id": "8625564d-0fab-41f0-86e2-e6c8e3e4541e",
@@ -213,7 +222,16 @@
       "photo": "",
       "gender": "male",
       "personalId": "22001035120",
-      "phoneNumber": "598829272"
+      "phoneNumber": "598829272",
+      "accounts": [
+        {
+          "currency": "GEL",
+          "accountType": "Current",
+          "status": "Active",
+          "clientId": "8625564d-0fab-41f0-86e2-e6c8e3e4541e",
+          "accountId": "1893d9f8-f9fe-42f3-b597-34282ae18098"
+        }
+      ]
     },
     {
       "id": "49d1eece-a009-4f71-8c2a-c8765754438f",
