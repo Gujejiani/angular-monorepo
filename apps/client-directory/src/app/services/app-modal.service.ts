@@ -1,6 +1,6 @@
 import { Store } from '@ngrx/store';
 import { Injectable, ComponentFactoryResolver, Injector, ApplicationRef, EmbeddedViewRef, ComponentRef } from "@angular/core";
-import { ModalComponent, ModalData } from "@angular-monorepo/shared-ui";
+import { ModalComponent, ModalData } from "@angular-monorepo/shared";
 import { Observable, Subject, take } from 'rxjs';
 import { selectModalInfo } from '../store/users/users.selectors';
 import { RESET_MODAL } from '../store/users/users.actions';

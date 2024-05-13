@@ -1,4 +1,4 @@
-import { ModalData, UserModel } from '@angular-monorepo/shared-ui';
+import { ModalData, UserModel } from '@angular-monorepo/shared';
 import { createAction } from '@ngrx/store';
 
 

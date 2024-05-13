@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { slideFadeAnimation } from 'libraries/shared-ui/src/lib/animation/animations';
-import { AccountStatusEnum, AccountTypeEnum, CurrencyEnum, UserModel } from '@angular-monorepo/shared-ui';
+import { slideFadeAnimation } from 'libraries/shared/src/lib/animation/animations';
+import { AccountStatusEnum, AccountTypeEnum, CurrencyEnum, UserModel } from '@angular-monorepo/shared';
 import { UserService } from '../../services/user.service';
 import { v4 as uuidv4 } from 'uuid';
 

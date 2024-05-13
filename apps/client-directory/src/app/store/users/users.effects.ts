@@ -10,7 +10,7 @@ import { APIService } from '../../api/api.service';
 import * as userActions from './users.actions'
 import { Injectable } from '@angular/core';
 import { CREATE_USER, DELETE_USER, GET_USERS, UPDATE_USER } from '../../api/endpoints';
-import { UserModel } from '@angular-monorepo/shared-ui';
+import { UserModel } from '@angular-monorepo/shared';
 import { v4 as uuidv4 } from 'uuid';
 @Injectable()
 export class UsersEffects {

@@ -1,9 +1,9 @@
 import { UserService } from './../../services/user.service';
-import { UIClientFormContainerComponent, maxImumNumberOfUserFormPages, UserModel } from '@angular-monorepo/shared-ui';
+import { UIClientFormContainerComponent, maxImumNumberOfUserFormPages, UserModel } from '@angular-monorepo/shared';
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { ClientFormSectionNames } from 'libraries/shared-ui/src/lib/models';
+import { ClientFormSectionNames } from 'libraries/shared/src/lib/models';
 import {  FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 

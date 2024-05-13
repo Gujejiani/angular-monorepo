@@ -1,7 +1,7 @@
 import { AppModalService } from './../../services/app-modal.service';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AccountStatusEnum, UserModel, mockUser } from '@angular-monorepo/shared-ui';
+import { AccountStatusEnum, UserModel, mockUser } from '@angular-monorepo/shared';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 

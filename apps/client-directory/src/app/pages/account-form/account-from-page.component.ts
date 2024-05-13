@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { map, Observable, of } from 'rxjs';
 import { AccountFormComponent } from '../../containers/account-form/account-form.component';
-import { UserModel, mockUser } from '@angular-monorepo/shared-ui';
+import { UserModel, mockUser } from '@angular-monorepo/shared';
 import { UserService } from '../../services/user.service';
 
 @Component({

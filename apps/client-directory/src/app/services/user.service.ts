@@ -1,6 +1,6 @@
 import { AppModalService } from './app-modal.service';
 import { Store } from '@ngrx/store';
-import { UserModel, asyncValidator, englishPattern, genderValidator, georgianPattern, patternValidator, startsWithValidator } from "@angular-monorepo/shared-ui";
+import { UserModel, asyncValidator, englishPattern, genderValidator, georgianPattern, patternValidator, startsWithValidator } from "@angular-monorepo/shared";
 import { Injectable } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import * as Actions from '../store/users/users.actions';
