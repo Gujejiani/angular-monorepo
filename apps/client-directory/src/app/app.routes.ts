@@ -21,6 +21,10 @@ export const appRoutes: Route[] = [
       ),
   },
   {
+    path: "add-client",
+    redirectTo: "add-client/0",
+  },
+  {
     path: "create-account/:id",
     loadComponent: () =>
       import("./pages/account-form/account-from-page.component").then(
