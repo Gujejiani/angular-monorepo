@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { UIClientFormContainerComponent } from './client-form.component';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { UIClientFormContainerComponent } from "./client-form.component";
 
-describe('UIClientFormContainerComponent', () => {
+describe("UIClientFormContainerComponent", () => {
   let component: UIClientFormContainerComponent;
   let fixture: ComponentFixture<UIClientFormContainerComponent>;
 
@@ -15,7 +15,7 @@ describe('UIClientFormContainerComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

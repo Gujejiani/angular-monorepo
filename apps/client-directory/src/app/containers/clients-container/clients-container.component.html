@@ -1,55 +1,65 @@
+<div class="clients">
+  <h3 class="clients-title">Client List</h3>
 
+  @if(users$ | async; as users){ @if(users?.length){
+  <div class="filter-bar">
+    <!-- Simple Filtering Dropdown -->
+    <select [(ngModel)]="filtersData.selectedGender" (change)="saveFilters()">
+      <option [value]="GENDER.BOTH">All Genders</option>
+      <option [value]="GENDER.MALE">Male</option>
+      <option [value]="GENDER.FEMALE">Female</option>
+    </select>
 
-<div class="clients" >
- 
-  <h3  class="clients-title" >Client List</h3>
+    <!-- Search Input -->
+    <input
+      type="text"
+      placeholder="Personal ID"
+      [(ngModel)]="filtersData.searchText"
+      (input)="saveFilters()"
+    />
+  </div>
 
- 
-  
+  <lib-clients-table
+    [users]="
+      users
+        | filterWithGenderAndId
+          : filtersData.selectedGender
+          : filtersData.searchText
+        | pagination
+          : paginationData.pageIndex
+          : paginationData.pageSize
+          : (filtersData.searchText &&
+            filtersData.selectedGender !== GENDER.BOTH
+              ? true
+              : false)
+    "
+    [length]="
+      (
+        users
+        | filterWithGenderAndId
+          : filtersData.selectedGender
+          : filtersData.searchText
+      ).length
+    "
+    [pageSize]="paginationData.pageSize"
+    [pageIndex]="paginationData.pageIndex"
+    [notFoundButtonText]="'Reset Filters'"
+    [notFoundText]="getNotFoundText"
+    [imgEndpoint]="getImageUrl"
+    (editUser)="editUser($event)"
+    (detailClicked)="openDetailPage($event)"
+    (deleteUser)="deleteUser($event)"
+    (pageChanged)="pageChanged($event)"
+    (resetFilters)="resetFilters()"
+    (createAccount)="createAccount($event)"
+  >
+  </lib-clients-table>
+  } @else {
+  <lib-info
+    [message]="'No Clients Found'"
+    [buttonText]="'Add Client'"
+    (actionClick)="openCreatePage()"
+  ></lib-info>
 
-  @if(users$ | async; as users){
-
-  
-
-    @if(users?.length){
-      <div class="filter-bar">
-        <!-- Simple Filtering Dropdown -->
-        <select [(ngModel)]="filtersData.selectedGender" (change)="saveFilters()">
-          <option [value]="GENDER.BOTH">All Genders</option>
-          <option [value]="GENDER.MALE">Male</option>
-          <option [value]="GENDER.FEMALE">Female</option>
-        </select>
-        
-        <!-- Search Input -->
-        <input type="text" placeholder="Personal ID" [(ngModel)]="filtersData.searchText" (input)="saveFilters()" >
-      </div>
-
-
-
-
-
-      <lib-clients-table 
-      [users]="(users | filterWithGenderAndId : filtersData.selectedGender: filtersData.searchText )
-      | pagination : paginationData.pageIndex : paginationData.pageSize:  (filtersData.searchText && filtersData.selectedGender !== GENDER.BOTH?true:false) "
-      [length]="(users | filterWithGenderAndId : filtersData.selectedGender: filtersData.searchText ).length"
-      [pageSize]="paginationData.pageSize"
-      [pageIndex]="paginationData.pageIndex"
-      [notFoundButtonText]="'Reset Filters'"
-      [notFoundText]="getNotFoundText"
-      [imgEndpoint]="getImageUrl"
-      (editUser)="editUser($event)"
-      (detailClicked)="openDetailPage($event)"
-      (deleteUser)="deleteUser($event)"
-      (pageChanged)="pageChanged($event)"
-      (resetFilters)="resetFilters()"
-      (createAccount)="createAccount($event)"
-      >
-      </lib-clients-table>
-    } @else {
-      <lib-info [message]="'No Clients Found'" [buttonText]="'Add Client'" (actionClick)="openCreatePage()"  ></lib-info>
-
-    }
-  
-  }
-
+  } }
 </div>

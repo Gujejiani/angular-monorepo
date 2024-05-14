@@ -1,2 +1,1 @@
-
-export * from './endPoint-model'
+export * from "./endPoint-model";

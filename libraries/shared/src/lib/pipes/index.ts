@@ -1,2 +1,2 @@
-export * from './pagination.pipe';
-export * from './filter.pipe';
+export * from "./pagination.pipe";
+export * from "./filter.pipe";

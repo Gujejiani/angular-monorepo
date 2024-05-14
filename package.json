@@ -5,7 +5,9 @@
   "scripts": {
     "start": "nx serve client-directory",
     "json-server": "json-server --watch mock/db.json --port 3000",
-    "node-server": "nx serve photo-api-my-express-api"
+    "node-server": "nx serve photo-api-my-express-api",
+    "prettier": "npx prettier --write 'apps/**/*.ts' 'apps/**/*.html' 'libraries/**/*.ts' 'libs/**/*.html'"
+    
   },
   "private": true,
   "dependencies": {

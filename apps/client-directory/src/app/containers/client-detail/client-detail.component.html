@@ -1,61 +1,102 @@
 <div class="user-detail">
-   
-    <div class="user-detail__user-info">
-      <div class="user-detail__user-section">
-        <h2>Personal Information</h2>
-        <div class="user-detail__user-data user-detail__user-data--personal">
-        <img   [src]="getImageUrl" libImgFallback [fallbackPath]="'assets/default.jpeg'"  alt="User Photo"> 
-        <div class="user-detail__personal" >
-
-     
+  <div class="user-detail__user-info">
+    <div class="user-detail__user-section">
+      <h2>Personal Information</h2>
+      <div class="user-detail__user-data user-detail__user-data--personal">
+        <img
+          [src]="getImageUrl"
+          libImgFallback
+          [fallbackPath]="'assets/default.jpeg'"
+          alt="User Photo"
+        />
+        <div class="user-detail__personal">
           <p><strong>ID:</strong> {{ user?.id }}</p>
-          <p><strong>firstName:</strong> {{ user?.firstName }} </p>
-          <p><strong>lastName:</strong> {{ user?.lastName }} </p>
+          <p><strong>firstName:</strong> {{ user?.firstName }}</p>
+          <p><strong>lastName:</strong> {{ user?.lastName }}</p>
           <p><strong>Gender:</strong> {{ user?.gender }}</p>
           <p><strong>Personal ID:</strong> {{ user?.personalId }}</p>
           <p><strong>Phone Number:</strong> {{ user?.phoneNumber }}</p>
 
-          <div class="user-detail__buttons" >
-            <button type="button" (click)="onEditUser()"   class="user-detail-btn ">Edit</button>
-            <button (click)="onDeleteUser()"  type="button"   class="user-detail-btn  user-detail-btn--delete">Delete</button>
+          <div class="user-detail__buttons">
+            <button
+              type="button"
+              (click)="onEditUser()"
+              class="user-detail-btn"
+            >
+              Edit
+            </button>
+            <button
+              (click)="onDeleteUser()"
+              type="button"
+              class="user-detail-btn user-detail-btn--delete"
+            >
+              Delete
+            </button>
           </div>
         </div>
-       
-        </div>
       </div>
-      <div class="user-detail__user-section">
-        <h2>Legal Address</h2>
-        <div class="user-detail__user-data">
-          <p><strong>Country:</strong> {{ user?.legalAddress?.country }}</p>
-          <p><strong>City:</strong> {{ user?.legalAddress?.city }}</p>
-          <p><strong>Address:</strong> {{ user?.legalAddress?.address }}</p>
-        </div>
+    </div>
+    <div class="user-detail__user-section">
+      <h2>Legal Address</h2>
+      <div class="user-detail__user-data">
+        <p><strong>Country:</strong> {{ user?.legalAddress?.country }}</p>
+        <p><strong>City:</strong> {{ user?.legalAddress?.city }}</p>
+        <p><strong>Address:</strong> {{ user?.legalAddress?.address }}</p>
       </div>
-      <div class="user-detail__user-section">
-        <h2>FactualAddress Address</h2>
-        <div class="user-detail__user-data">
-          <p><strong>Country:</strong> {{ user?.factualAddress?.country }}</p>
-          <p><strong>City:</strong> {{ user?.factualAddress?.city }}</p>
-          <p><strong>Address:</strong> {{ user?.factualAddress?.address }}</p>
-        </div>
+    </div>
+    <div class="user-detail__user-section">
+      <h2>FactualAddress Address</h2>
+      <div class="user-detail__user-data">
+        <p><strong>Country:</strong> {{ user?.factualAddress?.country }}</p>
+        <p><strong>City:</strong> {{ user?.factualAddress?.city }}</p>
+        <p><strong>Address:</strong> {{ user?.factualAddress?.address }}</p>
       </div>
-      <div class="user-detail__user-section">
-        <h2>Accounts</h2>
-        <button (click)="onCreateAccount()" class="user-detail-btn" >Crete New Account</button>
+    </div>
+    <div class="user-detail__user-section">
+      <h2>Accounts</h2>
+      <button (click)="onCreateAccount()" class="user-detail-btn">
+        Crete New Account
+      </button>
 
-        <div *ngFor="let account of user?.accounts" class="user-detail__account-item" [ngClass]="{ 'active': account.status === ACCOUNT_STATUS.ACTIVE, 'inactive': account.status === ACCOUNT_STATUS.INACTIVE }">
-         <div class="user-detail__account-info" >
+      <div
+        *ngFor="let account of user?.accounts"
+        class="user-detail__account-item"
+        [ngClass]="{
+          active: account.status === ACCOUNT_STATUS.ACTIVE,
+          inactive: account.status === ACCOUNT_STATUS.INACTIVE
+        }"
+      >
+        <div class="user-detail__account-info">
           <p><strong>Account Number:</strong> {{ account.accountId }}</p>
           <p><strong>Client Number:</strong> {{ account.clientId }}</p>
           <p><strong>Account Type:</strong> {{ account.accountType }}</p>
           <p><strong>Currency:</strong> {{ account.currency }}</p>
-          <p  ><strong>Status:</strong   > <span class='user-detail__status-value' [ngClass]="{'user-detail__status-value--inactive': account.status ===ACCOUNT_STATUS.INACTIVE}" > {{ account.status }} </span> </p>
-         </div>
-         <button (click)="changeAccountStatus(account.status, account?.accountId)" class="user-detail-btn user-detail-btn--account user-detail-btn--activate" [ngClass]="{'user-detail-btn--deactivate': account.status === ACCOUNT_STATUS.ACTIVE}"  >{{account.status === ACCOUNT_STATUS.ACTIVE ? 'Deactivate': 'Activate'}}</button>
-
+          <p>
+            <strong>Status:</strong>
+            <span
+              class="user-detail__status-value"
+              [ngClass]="{
+                'user-detail__status-value--inactive':
+                  account.status === ACCOUNT_STATUS.INACTIVE
+              }"
+            >
+              {{ account.status }}
+            </span>
+          </p>
         </div>
-
+        <button
+          (click)="changeAccountStatus(account.status, account?.accountId)"
+          class="user-detail-btn user-detail-btn--account user-detail-btn--activate"
+          [ngClass]="{
+            'user-detail-btn--deactivate':
+              account.status === ACCOUNT_STATUS.ACTIVE
+          }"
+        >
+          {{
+            account.status === ACCOUNT_STATUS.ACTIVE ? "Deactivate" : "Activate"
+          }}
+        </button>
       </div>
     </div>
   </div>
-  
+</div>

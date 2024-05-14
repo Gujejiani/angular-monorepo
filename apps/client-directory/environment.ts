@@ -1,7 +1,6 @@
 export const environment = {
-    production: false,
+  production: false,
 
-    photoEndPoint: 'http://localhost:3333/',
-    dbEndPoint: 'http://localhost:3000/',
-    
-}
+  photoEndPoint: "http://localhost:3333/",
+  dbEndPoint: "http://localhost:3000/",
+};

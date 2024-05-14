@@ -1,45 +1,68 @@
-<form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit()" >
- 
-            <div  [@slideFadeAnimation]="{value: false, params: {transition:   '100%'} }" >
-              
-                <div class="form-group">
-                    <label for="clientId">User ID</label>
-                    <select  id="clientId" class="form-control" [ngClass]="{'form-control--invalid':formGroup.get('clientId')?.invalid }" formControlName="clientId"  >
-                        @for(user of users; track user?.id){
+<form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <div [@slideFadeAnimation]="{ value: false, params: { transition: '100%' } }">
+    <div class="form-group">
+      <label for="clientId">User ID</label>
+      <select
+        id="clientId"
+        class="form-control"
+        [ngClass]="{
+          'form-control--invalid': formGroup.get('clientId')?.invalid
+        }"
+        formControlName="clientId"
+      >
+        @for(user of users; track user?.id){
 
+        <option [value]="user?.id">
+          {{ user?.firstName }} {{ user?.lastName }} {{ user?.id }}
+        </option>
 
-                            <option [value]="user?.id">{{user?.firstName }} {{user?.lastName}} {{user?.id}} </option>
-
-                        }
-                        
-                     
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="currency">Currency</label>
-                    <select  id="currency" class="form-control" formControlName="currency" >
-                        <option [value]="CURRENCY.GEL">{{CURRENCY.GEL}}</option>
-                        <option [value]="CURRENCY.EUR">{{CURRENCY.EUR}}</option>
-                        <option [value]="CURRENCY.USD">{{CURRENCY.USD}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="accountType">Account Type</label>
-                    <select  id="accountType" class="form-control" formControlName="accountType" >
-                        <option [value]="ACCOUNT_TYPE.CURRENT">{{ACCOUNT_TYPE.CURRENT}}</option>
-                        <option [value]="ACCOUNT_TYPE.DEPOSIT">{{ACCOUNT_TYPE.DEPOSIT}}</option>
-                        <option [value]="ACCOUNT_TYPE.SAVINGS">{{ACCOUNT_TYPE.SAVINGS}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="status">Account Type</label>
-                    <select  id="status" class="form-control" formControlName="status" >
-                        <option [value]="ACCOUNT_STATUS.ACTIVE">{{ACCOUNT_STATUS.ACTIVE}}</option>
-                        <option [value]="ACCOUNT_STATUS.INACTIVE">{{ACCOUNT_STATUS.INACTIVE}}</option>
-                    </select>
-                </div>
-               
-            </div>
-            <button [disabled]="!formGroup.valid"  [ngClass]="{'form-btn--disabled': !formGroup.valid}" type="submit"   class="form-btn ">Create Account</button>
-
-    </form>
+        }
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="currency">Currency</label>
+      <select id="currency" class="form-control" formControlName="currency">
+        <option [value]="CURRENCY.GEL">{{ CURRENCY.GEL }}</option>
+        <option [value]="CURRENCY.EUR">{{ CURRENCY.EUR }}</option>
+        <option [value]="CURRENCY.USD">{{ CURRENCY.USD }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="accountType">Account Type</label>
+      <select
+        id="accountType"
+        class="form-control"
+        formControlName="accountType"
+      >
+        <option [value]="ACCOUNT_TYPE.CURRENT">
+          {{ ACCOUNT_TYPE.CURRENT }}
+        </option>
+        <option [value]="ACCOUNT_TYPE.DEPOSIT">
+          {{ ACCOUNT_TYPE.DEPOSIT }}
+        </option>
+        <option [value]="ACCOUNT_TYPE.SAVINGS">
+          {{ ACCOUNT_TYPE.SAVINGS }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="status">Account Type</label>
+      <select id="status" class="form-control" formControlName="status">
+        <option [value]="ACCOUNT_STATUS.ACTIVE">
+          {{ ACCOUNT_STATUS.ACTIVE }}
+        </option>
+        <option [value]="ACCOUNT_STATUS.INACTIVE">
+          {{ ACCOUNT_STATUS.INACTIVE }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <button
+    [disabled]="!formGroup.valid"
+    [ngClass]="{ 'form-btn--disabled': !formGroup.valid }"
+    type="submit"
+    class="form-btn"
+  >
+    Create Account
+  </button>
+</form>
