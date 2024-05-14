@@ -8,6 +8,8 @@
 
 ## Start the application
 
+`npm install`
+
 For Json Server run `npm run json-server`
 
 
