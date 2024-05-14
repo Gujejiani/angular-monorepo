@@ -2,6 +2,7 @@ import { Route } from "@angular/router";
 import { unsavedChangesGuard } from "./guards/unsaved-changes.guard";
 import { formGuard } from "./guards/form.guard";
 import { userDetailResolver } from "./resolver/detail.resolver";
+import { editFormGuard } from "./guards/edit.guard";
 
 export const appRoutes: Route[] = [
   {
@@ -37,6 +38,7 @@ export const appRoutes: Route[] = [
       import("./pages/edit-client/edit-client.component").then(
         (c) => c.EditPageComponent
       ),
+    canActivate: [editFormGuard]
   },
  
   {

@@ -123,8 +123,8 @@ export class ClientFormContainerComponent implements OnInit, OnDestroy, OnChange
   }
   deleteUser(id: string) {
     this.userService.deleteUser(id);
-    this.userForm.reset();
-    this.router.navigate(["/add-client", 0]);
+  
+
   }
 
   ngOnDestroy(): void {
