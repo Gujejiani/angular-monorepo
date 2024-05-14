@@ -31,12 +31,19 @@ export class ClientsTableComponent implements OnDestroy {
   displayedColumns: string[] = ['photo','firstName', 'lastName', 'gender', 'personalId', 'phoneNumber', 'accounts', 'actions' ];
   deleteAnimation = false;
   timeOut =0;
-  
+  failedPhotoIds: string[] = []
   @Input({
     required: true
   }) imgEndpoint=''
 
-
+  imageError(id: string | undefined){
+    if(id){
+        if(!this.failedPhotoIds.includes(id)){
+          this.failedPhotoIds.push(id)
+        }
+    
+    }
+  }
    imagePath(id: string){
     return this.imgEndpoint + id + '.jpeg'
   }

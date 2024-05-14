@@ -4,8 +4,8 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve client-directory",
-    "start:json-server": "json-server --watch mock/db.json --port 3000",
-    "start:node-server": "nx serve photo-api"
+    "json-server": "json-server --watch mock/db.json --port 3000",
+    "node-server": "nx serve photo-api-my-express-api"
   },
   "private": true,
   "dependencies": {

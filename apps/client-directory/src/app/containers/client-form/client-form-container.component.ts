@@ -51,6 +51,7 @@ export class ClientFormContainerComponent  implements OnInit , OnDestroy{
 
   photoUploaded(event: File){
     this.userForm.patchValue({photo: event})
+    this.userForm.markAsDirty()
   }
   fromSubmitted({user, update}: {user: UserModel, update?: boolean}){
     user.id = uuidv4() // generate random id
@@ -73,6 +74,7 @@ export class ClientFormContainerComponent  implements OnInit , OnDestroy{
   }
 
   saveUserImage(user: UserModel){
+  
     const form = new FormData()
     form.append('id', JSON.stringify(user.id))
     form.append('photo', user.photo as any)

@@ -399,7 +399,7 @@
         "city": "Tbilisi",
         "address": "Georgia"
       },
-      "photo": "",
+      "photo": {},
       "gender": "male",
       "personalId": "22001035129",
       "phoneNumber": "598829272"
@@ -434,13 +434,22 @@
       },
       "factualAddress": {
         "country": "Georgia",
-        "city": "Tbilisi",
+        "city": "Tbilisii",
         "address": "Georgia"
       },
       "photo": {},
       "gender": "female",
       "personalId": "22001035120",
-      "phoneNumber": "598829272"
+      "phoneNumber": "598829272",
+      "accounts": [
+        {
+          "currency": "GEL",
+          "accountType": "Current",
+          "status": "Active",
+          "clientId": "4106318b-2c6f-4e16-bc07-2e0f9eb0ea2e",
+          "accountId": "ec41b021-eab7-47ca-88ba-6b98ef44d496"
+        }
+      ]
     }
   ]
 }
