@@ -67,7 +67,7 @@ export class UIClientFormContainerComponent implements OnInit {
   }
   getFormIsValid(){
 
-    return this.userForm.status ==='VALID'  || this.userForm.status ==='PENDING'
+    return this.userForm.status ==='VALID' 
   }
   onDeleteUser(){
     if(this.editUser?.id){

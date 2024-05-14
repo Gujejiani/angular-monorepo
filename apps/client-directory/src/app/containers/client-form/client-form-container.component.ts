@@ -60,13 +60,14 @@ export class ClientFormContainerComponent  implements OnInit , OnDestroy{
       this.userService.createUser(user)
       this.userForm.reset()
       this.router.navigate(['/add-client', 0],)  
-
+      localStorage.removeItem('userFormData')
       
       
     }else {
-   
+    
       user.id = this.editingId as any
       this.userService.updateUser(user)  
+      this.userForm.markAsUntouched();
     }
     if(user.photo){
       this.saveUserImage(user)
