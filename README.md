@@ -26,45 +26,45 @@ This project is an application created using Nx. It consists of two apps: one fo
 
     
 
-    The front-end is developed using Angular 17 and incorporates various technologies including ngrx store, reactive forms, Angular animations, reusable components, standalone components, and Angular Material.
+The front-end is developed using Angular 17 and incorporates various technologies including ngrx store, reactive forms, Angular animations, reusable components, standalone components, and Angular Material.
 
 
-    The back-end is served using json-server, while the Express app utilizes the multer package to store and serve images.
+The back-end is served using json-server, while the Express app utilizes the multer package to store and serve images.
 
 
-    Dependency management is organized such that only apps can import modules from libraries, not vice versa.
+Dependency management is organized such that only apps can import modules from libraries, not vice versa.
 
 ### Clients Page
-    The Clients Page features an Angular Material table with pagination functionality. Users can utilize simple and detailed filters, change genders, and search by personal information or a combination of both.
+The Clients Page features an Angular Material table with pagination functionality. Users can utilize simple and detailed filters, change genders, and search by personal information or a combination of both.
 
 
-   In case if no user is found after a search, an information modal is displayed with a shake animation using Angular animations. Additionally, when a user is deleted from the table, an Angular animation is triggered and the deleted item slides out.
+In case if no user is found after a search, an information modal is displayed with a shake animation using Angular animations. Additionally, when a user is deleted from the table, an Angular animation is triggered and the deleted item slides out.
 
 
-   Admin actions include viewing details or removing users, with the edit button accessible within the detail page.
+Admin actions include viewing details or removing users, with the edit button accessible within the detail page.
 
    ![Alt text](image.png)
 
 ### Detail Page
 
-    The Detail Page presents comprehensive information about a user, along with options to edit or delete their details. Below, a user Account list is displayed, enabling the creation of new accounts or modification of existing ones.
+The Detail Page presents comprehensive information about a user, along with options to edit or delete their details. Below, a user Account list is displayed, enabling the creation of new accounts or modification of existing ones.
 
 
-    This page utilizes a resolver guard to load user information before the page loads. 
+This page utilizes a resolver guard to load user information before the page loads. 
 
    ![Alt text](image-1.png)
 
 
 
-    The form is created using reactive forms and includes custom validations found in `form.validators.ts`. An async validator ensures that the Personal ID is unique.
+The form is created using reactive forms and includes custom validations found in `form.validators.ts`. An async validator ensures that the Personal ID is unique.
 
-    Additionally, it features canActivate and canDeactivate guards, triggering a confirmatiomodal if a user attempts to leave the page with unsaved changes.
-
-
-   Angular slide animations are implemented during page transitions, providing smooth effects. The submit button is only activated when all required fields are valid.
+Additionally, it features canActivate and canDeactivate guards, triggering a confirmatiomodal if a user attempts to leave the page with unsaved changes.
 
 
-    After submission, a generic modal notifies the user of the success and displays the added user's ID, which can be clicked to navigate to the detail page.
+Angular slide animations are implemented during page transitions, providing smooth effects. The submit button is only activated when all required fields are valid.
+
+
+After submission, a generic modal notifies the user of the success and displays the added user's ID, which can be clicked to navigate to the detail page.
 
     
   ![Alt text](image-2.png)
