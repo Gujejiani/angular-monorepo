@@ -27,6 +27,7 @@
 
         @include modifier('account'){
             opacity: 0.6;
+            margin-top: 20px;
         }
         @include modifier('delete'){
             background-color: var(--error-color);

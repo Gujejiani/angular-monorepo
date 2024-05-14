@@ -47,6 +47,7 @@ export class ClientsContainerComponent implements OnInit {
       searchText: '',
       selectedGender: GenderEnum.BOTH
     }
+    localStorage.removeItem('FiltersData')
   }
   ngOnInit(): void {
     this.loadPaginationData()
