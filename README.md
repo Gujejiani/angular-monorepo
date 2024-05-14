@@ -21,7 +21,7 @@ To Serve App `npm start` to start the development server. Happy coding!
 
 ## Description 
 
-    This project is an application created using Nx. It consists of two apps: one for the front-end and the other for serving images through an Express app. In the Libraries section, there is a shared library containing reusable elements such as pipes, directives, validators, styles, and components.
+This project is an application created using Nx. It consists of two apps: one for the front-end and the other for serving images through an Express app. In the Libraries section, there is a shared library containing reusable elements such as pipes, directives, validators, styles, and components.
 
 
     
@@ -58,7 +58,7 @@ To Serve App `npm start` to start the development server. Happy coding!
 
     The form is created using reactive forms and includes custom validations found in `form.validators.ts`. An async validator ensures that the Personal ID is unique.
 
-    Additionally, it features canActivate and canDeactivate guards, triggering a confirmation modal if a user attempts to leave the page with unsaved changes.
+    Additionally, it features canActivate and canDeactivate guards, triggering a confirmatiomodal if a user attempts to leave the page with unsaved changes.
 
 
    Angular slide animations are implemented during page transitions, providing smooth effects. The submit button is only activated when all required fields are valid.
