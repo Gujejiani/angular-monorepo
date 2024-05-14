@@ -32,6 +32,14 @@ export const appRoutes: Route[] = [
       ),
   },
   {
+    path: "edit-account/:id",
+    loadComponent: () =>
+      import("./pages/edit-client/edit-client.component").then(
+        (c) => c.EditPageComponent
+      ),
+  },
+ 
+  {
     path: "create-account",
     loadComponent: () =>
       import("./pages/account-form/account-from-page.component").then(

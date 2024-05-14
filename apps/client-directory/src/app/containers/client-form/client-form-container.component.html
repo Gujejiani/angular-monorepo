@@ -15,7 +15,7 @@
   <lib-client-form
     [selectedSection]="id"
     [userForm]="userForm"
-    [editUser]="editingUser$ | async"
+    [editUser]="editingUser"
     (sectionChange)="formPageIndexChanged($event)"
     (photoUploaded)="photoUploaded($event)"
     (deleteUser)="deleteUser($event)"

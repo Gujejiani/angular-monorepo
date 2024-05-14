@@ -14,7 +14,7 @@ For Json Server run `npm run json-server`
 To Serve App `npm start` to start the development server. Happy coding!
 
 
-## Description 
+## Project Guide
 
 This project is an application created using Nx. It consists of two apps: one for the front-end and the other for serving images through an Express app. In the Libraries section, there is a shared library generated using nx,  containing reusable elements such as pipes, directives, validators, styles, and components.
 

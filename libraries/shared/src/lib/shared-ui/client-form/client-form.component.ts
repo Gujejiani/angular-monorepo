@@ -4,7 +4,6 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnInit,
   Output,
 } from "@angular/core";
 import { CommonModule } from "@angular/common";
@@ -23,13 +22,9 @@ import { UserModel } from "../../models/user-models";
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [slideFadeAnimation],
 })
-export class UIClientFormContainerComponent implements OnInit {
+export class UIClientFormContainerComponent  {
   constructor(private cdr: ChangeDetectorRef) {}
-  ngOnInit(): void {
-    if (this.editUser) {
-      this.userForm.patchValue(this.editUser);
-    }
-  }
+ 
   SECTIONS = ClientFormSectionNames;
   @Input({
     required: true,

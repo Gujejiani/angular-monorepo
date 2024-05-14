@@ -71,7 +71,7 @@ export class UserService {
   }
 
   editUser(id: string) {
-    this.router.navigate([`/add-client/0`], {
+    this.router.navigate([`/edit-account/0`], {
       queryParams: {
         editingId: id,
       },
@@ -117,7 +117,7 @@ export class UserService {
         city: ["", [Validators.required]],
         address: ["", [Validators.required]],
       }),
-      photo: ["name"],
+      photo: [""],
       gender: ["male", [Validators.required, genderValidator()]],
       personalId: [
         "",

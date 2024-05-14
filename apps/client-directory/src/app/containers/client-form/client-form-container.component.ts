@@ -3,14 +3,17 @@ import {
   UIClientFormContainerComponent,
   maxImumNumberOfUserFormPages,
   UserModel,
-  ClientFormSectionNames
+  ClientFormSectionNames,
+  mockUser
 } from "@angular-monorepo/shared";
 import {
   ChangeDetectionStrategy,
   Component,
   Input,
+  OnChanges,
   OnDestroy,
   OnInit,
+  SimpleChanges,
 } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { Router } from "@angular/router";
@@ -25,19 +28,26 @@ import { v4 as uuidv4 } from "uuid";
   styleUrl: "./client-form-container.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ClientFormContainerComponent implements OnInit, OnDestroy {
+export class ClientFormContainerComponent implements OnInit, OnDestroy, OnChanges {
   constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
-    this.loadFormFromLocalStorage();
-    if (this.editingId) {
-      this.editingUser$ = this.userService.getUSerById(this.editingId);
+   
+    if (!this.editingId) {
+      this.loadFormFromLocalStorage();
+
+    }
+   
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['editingUser'] && changes['editingUser'].currentValue) {
+      this.userForm.patchValue(changes['editingUser'].currentValue);
     }
   }
 
   selectedSection = ClientFormSectionNames.PERSONAL;
   SECTIONS = ClientFormSectionNames;
-  editingUser$: Observable<UserModel | undefined> | null = null;
+ @Input() editingUser: UserModel | undefined | null = mockUser;
   @Input({ required: true }) userForm: FormGroup = new FormGroup({});
   @Input({
     transform: (value: string) => Number(value),
@@ -52,7 +62,8 @@ export class ClientFormContainerComponent implements OnInit, OnDestroy {
   formPageIndexChanged(formPageIndex: number) {
     if (formPageIndex < maxImumNumberOfUserFormPages) {
       localStorage.setItem("insideFormNav", "true");
-      this.router.navigate(["/add-client", formPageIndex], {
+      const route = this.editingId? "/edit-account": "/add-client";
+      this.router.navigate([route, formPageIndex], {
         queryParamsHandling: "preserve",
       });
     }
@@ -74,7 +85,8 @@ export class ClientFormContainerComponent implements OnInit, OnDestroy {
     } else {
       user.id = this.editingId as any;
       this.userService.updateUser(user);
-      this.userForm.markAsUntouched();
+        
+        this.userForm.markAsPristine()
     }
     if (user.photo) {
       this.saveUserImage(user);
@@ -85,7 +97,12 @@ export class ClientFormContainerComponent implements OnInit, OnDestroy {
     const form = new FormData();
     form.append("id", JSON.stringify(user.id));
     form.append("photo", user.photo as any);
-    this.userService.saveImage(form);
+      const img = user.photo as any
+    console.log(user.photo, img)
+    if(img?.name){
+
+      this.userService.saveImage(form);
+    }
   }
   /**
    * Save form values to local storage
