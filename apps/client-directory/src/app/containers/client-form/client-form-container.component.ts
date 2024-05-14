@@ -39,7 +39,6 @@ export class ClientFormContainerComponent  implements OnInit , OnDestroy{
    * @param formPageIndex 
    */
   formPageIndexChanged(formPageIndex: number) {
-      console.log(this.id, 'id of route', formPageIndex)
       if(formPageIndex<maxImumNumberOfUserFormPages){
         localStorage.setItem('insideFormNav', 'true');
           this.router.navigate(['/add-client', formPageIndex], {
@@ -105,6 +104,9 @@ export class ClientFormContainerComponent  implements OnInit , OnDestroy{
   }
 
   ngOnDestroy(): void {
+    if(this.editingId){
+      localStorage.removeItem('userFormData')
+    }
       this.userService.closeModal()
   }
 }

@@ -66,8 +66,8 @@ export class UsersEffects {
         ofType(userActions.DELETE_USER),
         switchMap( (action) => {
             return  this.apiService.apiCall(DELETE_USER, {id: action.payload}).pipe(
-            map((users) => {
-                    console.log('user deleted res ', users)
+            map((_users) => {
+                    
                 return userActions.SUCCESS_MESSAGE_ACTION({
                     title: 'Success',
                     message: 'User deleted successfully!',

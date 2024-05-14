@@ -8,15 +8,11 @@ export const englishPattern = /^[a-zA-Z\s\d]*$/;
 export function asyncValidator(apiCall: Observable<any>) {
     // self invoking function to return the validator function
     return function customValidator(): ValidatorFn {
-        console.log('called custom validator')
+      
           return (control: AbstractControl):Observable<{ [key: string]: string } | null>  => {
-            if (!control.valueChanges || control.pristine) {
-              return of(null);
-            }else {
-              console.log(control)
-            }
+           
               return apiCall.pipe(take(1),map((users: any)=>{
-                    console.log(users, 'inside validator')
+                   
                     const alreadyUsed = users?.some((user: UserModel)=> user.personalId === control.value)
 
                     if(alreadyUsed){
