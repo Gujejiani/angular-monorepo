@@ -3,6 +3,7 @@ import {
   UIClientFormContainerComponent,
   maxImumNumberOfUserFormPages,
   UserModel,
+  ClientFormSectionNames
 } from "@angular-monorepo/shared";
 import {
   ChangeDetectionStrategy,
@@ -13,7 +14,6 @@ import {
 } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { Router } from "@angular/router";
-import { ClientFormSectionNames } from "libraries/shared/src/lib/models";
 import { FormGroup } from "@angular/forms";
 import { Observable } from "rxjs";
 import { v4 as uuidv4 } from "uuid";
