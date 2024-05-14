@@ -47,7 +47,7 @@ export class ClientFormContainerComponent implements OnInit, OnDestroy, OnChange
 
   selectedSection = ClientFormSectionNames.PERSONAL;
   SECTIONS = ClientFormSectionNames;
- @Input() editingUser: UserModel | undefined | null = mockUser;
+ @Input() editingUser: UserModel | undefined | null = null;
   @Input({ required: true }) userForm: FormGroup = new FormGroup({});
   @Input({
     transform: (value: string) => Number(value),
