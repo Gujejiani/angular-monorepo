@@ -15,7 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@angular-monorepo/core": ["libraries/core/src/index.ts"],
       "@angular-monorepo/shared": ["libraries/shared/src/index.ts"]
     }
   },
