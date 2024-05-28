@@ -328,7 +328,16 @@
       "photo": {},
       "gender": "female",
       "personalId": "22001023102",
-      "phoneNumber": "598829272"
+      "phoneNumber": "598829272",
+      "accounts": [
+        {
+          "currency": "GEL",
+          "accountType": "Current",
+          "status": "Inactive",
+          "clientId": "1e41dd71-d8e3-48d6-9ab3-a7e267a37b37",
+          "accountId": "917dcf16-2776-44ee-9c04-a029e61e0bbd"
+        }
+      ]
     },
     {
       "id": "a8e0fb9c-a10a-4752-a232-8553e6d3fc63",

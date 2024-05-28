@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nx run-many --parallel --target=serve --projects=client-directory,photo-api-my-express-api",
-    "json-server": "json-server --watch mock/db.json --port 3000",
+    "json-server": "json-server --watch mock/db.json --port 3002",
     "image-server": "nx serve photo-api-my-express-api",
     "prettier": "npx prettier --write 'apps/**/*.ts' 'apps/**/*.html' 'libraries/**/*.ts' 'libs/**/*.html'"
     

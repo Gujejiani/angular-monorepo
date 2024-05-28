@@ -3,7 +3,7 @@
  * This is only a minimal backend to get started.
  */
 
-import express, { Request } from "express";
+import express from "express";
 import * as path from "path";
 import multer from "multer";
 import sharp from "sharp";
@@ -24,8 +24,8 @@ app.use(cors());
 app.use("/assets", express.static(path.join(__dirname, "assets")));
 
 app.post("/save-photo", upload.single("photo"), async (req: any, res, next) => {
-  // req.file is the `avatar` file
-  // req.body will hold the text fields, if there were any
+
+  
   console.log(req.body.id, "ID IS LOGGED");
   if (req?.file) {
     console.log("Saving File!");
@@ -37,7 +37,6 @@ app.post("/save-photo", upload.single("photo"), async (req: any, res, next) => {
         .jpeg({ quality: 80 })
         .toFile(`${assetsDir}/${req.file.filename}`, (err, info) => {
           console.log(err);
-          console.log("info is below WWWwwwWWWWW --------->>>>");
           fs.readdir(assetsDir, (readdirErr, files) => {
             if (readdirErr) {
               console.error("Error listing files:", readdirErr);
@@ -59,7 +58,7 @@ app.post("/save-photo", upload.single("photo"), async (req: any, res, next) => {
       message: "file saved",
     });
   } else {
-    console.log("file not provided");
+   
 
     return res.status(400).json({
       status: "fail",

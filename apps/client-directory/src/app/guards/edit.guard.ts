@@ -5,7 +5,7 @@ import { map, take } from "rxjs";
 
 export const editFormGuard: CanActivateFn = (route, _state) => {
   const router = inject(Router);
-    const userService = inject(UserService);
+  const userService = inject(UserService);
   const id = route.queryParamMap.get('editingId');
 
 

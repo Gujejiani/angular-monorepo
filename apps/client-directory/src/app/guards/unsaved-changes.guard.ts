@@ -10,7 +10,11 @@ export const unsavedChangesGuard: CanDeactivateFn<
   const insideFormNav = localStorage.getItem("insideFormNav");
 
   if (component?.userForm?.touched && !insideFormNav) {
-    return confirm("You have unsaved changes. Do you really want to leave?");
+    const action = confirm("You have unsaved changes. Do you really want to leave?")
+      if(action){
+        localStorage.removeItem("userFormData");
+      }
+    return action;
   }
 
   localStorage.removeItem("insideFormNav");
