@@ -1,0 +1,89 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    color: #000;
+  }
+  
+  .modal-content {
+    position: fixed;
+    background: white;
+    border-radius: 8px;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .modal-header,
+  .modal-footer {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modal-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  
+  .close-button {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  
+  .modal-body {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .status-icon {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .status.success {
+    color: #28a745;
+  }
+  
+  .status.pending {
+    color: #ffc107;
+  }
+  
+  .status.failed {
+    color: #dc3545;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

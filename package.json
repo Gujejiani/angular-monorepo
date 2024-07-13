@@ -7,11 +7,11 @@
     "json-server": "json-server --watch mock/db.json --port 3002",
     "image-server": "nx serve photo-api-my-express-api",
     "prettier": "npx prettier --write 'apps/**/*.ts' 'apps/**/*.html' 'libraries/**/*.ts' 'libs/**/*.html'"
-    
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~17.3.0",
+    "@angular/cdk": "^17.3.10",
     "@angular/common": "~17.3.0",
     "@angular/compiler": "~17.3.0",
     "@angular/core": "~17.3.0",

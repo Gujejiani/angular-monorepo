@@ -1,0 +1,31 @@
+
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 (click)="closeModal()" >{{title}}</h2>
+      <button class="close-button" >&times;</button>
+    </div>
+    <div class="modal-body">
+      @if (status === 'success') {
+        <div class="status success">
+          <i class="status-icon">✔</i>
+          <p>Payment Successful!</p>
+        </div>
+      }
+      @if (status === 'pending') {
+        <div class="status pending">
+          <i class="status-icon">⏳</i>
+          <p>Payment Pending...</p>
+        </div>
+      }
+      @if (status === 'failed') {
+        <div class="status failed">
+          <i class="status-icon">✖</i>
+          <p>Payment Failed. Please try again.</p>
+        </div>
+      }
+    </div>
+    <div class="modal-footer">
+      <button class="close-button" (click)="closeModal()">Close</button>
+    </div>
+  </div>
+
